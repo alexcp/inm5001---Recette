@@ -7,6 +7,9 @@ gem 'nested_form', '~> 0.2.3'
 gem 'jquery-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'thin'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-openid'
 
 group :test, :development do
   gem 'rspec-rails'
