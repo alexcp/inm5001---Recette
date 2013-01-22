@@ -1,3 +1,5 @@
+OmniAuth.config.logger = Rails.logger
+
 Rails.application.config.middleware.use OmniAuth::Builder do
   require 'openid/store/filesystem' 
   # IMPORTANT: Tout les informations ici doivent être secretes
