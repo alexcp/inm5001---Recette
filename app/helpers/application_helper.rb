@@ -8,4 +8,19 @@ module ApplicationHelper
       %w{facebook twitter openid}.map {|provider| concat content_tag :p ,sign_in_with(provider) }
     end
   end
+
+  def flash_message
+    if flash[:notice]
+      flash_message_html :notice
+    elsif flash[:error]
+      flash_message_html :error
+    end
+  end
+
+  def flash_message_html type
+    content_tag :div, :class=>"alert #{type == :notice ? "alert-info" : "alert-error"}" do
+      button_to "&times", "", :class=>"close", :data=>{:dismiss=>"alert"}
+      flash[type]
+    end
+  end
 end
