@@ -11,3 +11,30 @@
  *= require_self
  *= require_tree .
  */
+
+
+/* RECIPES LIST */
+#recipes_list{
+	width:600px;
+	margin:0;
+	padding:0;
+	color:#333;
+}
+
+#recipes_list li{
+	position:relative;
+	width:100%;
+	padding:5px 10px;
+	border:1px dashed #ddd;
+	border-width:0 0 1px;
+	background-color:#fff;
+	list-style:none;
+}
+#recipes_list li:hover{
+	background-color:#eee;
+}
+#recipes_list li a{
+	font-weight:bold;
+	color:#000;
+	text-decoration:none;
+}
