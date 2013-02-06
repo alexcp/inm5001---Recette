@@ -40,7 +40,7 @@ class RecettesController < ApplicationController
 
   # GET /recettes/1/edit
   def edit
-    @recette = Recette.find(params[:id])
+    @recette = current_user.recettes.find(params[:id])
   end
 
   # POST /recettes
