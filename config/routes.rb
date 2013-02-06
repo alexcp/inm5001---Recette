@@ -1,11 +1,7 @@
 Recettes::Application.routes.draw do
-  resource :recipes
+  resources :recipes
 
   root :to => "home#index"
-  match 'recipes/list', to: 'recipes#list'
-  match 'recipes/new', to: 'recipes#new'
-  match 'recipes/edit', to: 'recipes#edit'
-  match 'recipes/show', to: 'recipes#show'
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: 'session#error'
   match 'signout', to: 'sessions#destroy', as: 'signout'
