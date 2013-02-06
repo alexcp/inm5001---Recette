@@ -1,7 +1,5 @@
 Recettes::Application.routes.draw do
   resources :recettes
-
-
   root :to => "home#index"
 
   match 'auth/:provider/callback', to: 'sessions#create'
