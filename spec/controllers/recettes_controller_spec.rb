@@ -2,16 +2,29 @@ require 'spec_helper'
 describe RecettesController do
 
   def valid_attributes
-    {  }
+    {
+      titre: "Recette", 
+      description: "Lorem Ipsum", 
+      preparation: "Lorem Ipsum" 
+    }
   end
 
   def valid_session
     {}
   end
 
+  before(:each) do
+    user = FactoryGirl.create(:user)
+    controller.stub(:current_user=>user)
+  end
+
+  it "should have a current user" do
+    controller.send(:current_user).should_not be_nil
+  end
+
   describe "GET index" do
     it "assigns all recettes as @recettes" do
-      recette = Recette.create! valid_attributes
+      recette = controller.send(:current_user).recettes.create! valid_attributes
       get :index, {}, valid_session
       assigns(:recettes).should eq([recette])
     end
@@ -19,7 +32,7 @@ describe RecettesController do
 
   describe "GET show" do
     it "assigns the requested recette as @recette" do
-      recette = Recette.create! valid_attributes
+      recette = controller.send(:current_user).recettes.create! valid_attributes
       get :show, {:id => recette.to_param}, valid_session
       assigns(:recette).should eq(recette)
     end
@@ -34,7 +47,7 @@ describe RecettesController do
 
   describe "GET edit" do
     it "assigns the requested recette as @recette" do
-      recette = Recette.create! valid_attributes
+      recette = controller.send(:current_user).recettes.create! valid_attributes
       get :edit, {:id => recette.to_param}, valid_session
       assigns(:recette).should eq(recette)
     end
@@ -80,7 +93,7 @@ describe RecettesController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested recette" do
-        recette = Recette.create! valid_attributes
+        recette = controller.send(:current_user).recettes.create! valid_attributes
         # Assuming there are no other recettes in the database, this
         # specifies that the Recette created on the previous line
         # receives the :update_attributes message with whatever params are
@@ -90,13 +103,13 @@ describe RecettesController do
       end
 
       it "assigns the requested recette as @recette" do
-        recette = Recette.create! valid_attributes
+        recette = controller.send(:current_user).recettes.create! valid_attributes
         put :update, {:id => recette.to_param, :recette => valid_attributes}, valid_session
         assigns(:recette).should eq(recette)
       end
 
       it "redirects to the recette" do
-        recette = Recette.create! valid_attributes
+        recette = controller.send(:current_user).recettes.create! valid_attributes
         put :update, {:id => recette.to_param, :recette => valid_attributes}, valid_session
         response.should redirect_to(recette)
       end
@@ -104,7 +117,7 @@ describe RecettesController do
 
     describe "with invalid params" do
       it "assigns the recette as @recette" do
-        recette = Recette.create! valid_attributes
+        recette = controller.send(:current_user).recettes.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Recette.any_instance.stub(:save).and_return(false)
         put :update, {:id => recette.to_param, :recette => {  }}, valid_session
@@ -112,7 +125,7 @@ describe RecettesController do
       end
 
       it "re-renders the 'edit' template" do
-        recette = Recette.create! valid_attributes
+        recette = controller.send(:current_user).recettes.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Recette.any_instance.stub(:save).and_return(false)
         put :update, {:id => recette.to_param, :recette => {  }}, valid_session
@@ -123,14 +136,14 @@ describe RecettesController do
 
   describe "DELETE destroy" do
     it "destroys the requested recette" do
-      recette = Recette.create! valid_attributes
+      recette = controller.send(:current_user).recettes.create! valid_attributes
       expect {
         delete :destroy, {:id => recette.to_param}, valid_session
       }.to change(Recette, :count).by(-1)
     end
 
     it "redirects to the recettes list" do
-      recette = Recette.create! valid_attributes
+      recette = controller.send(:current_user).recettes.create! valid_attributes
       delete :destroy, {:id => recette.to_param}, valid_session
       response.should redirect_to(recettes_url)
     end

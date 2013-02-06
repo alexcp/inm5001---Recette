@@ -14,6 +14,7 @@ gem 'omniauth-openid'
 group :test, :development do
   gem 'rspec-rails'
   gem 'cucumber'
+  gem 'factory_girl_rails'
 end
 
 group :assets do

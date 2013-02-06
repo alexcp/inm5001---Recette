@@ -24,7 +24,7 @@ class RecettesController < ApplicationController
   # GET /recettes/new
   # GET /recettes/new.json
   def new
-    @recette = Recette.new
+    @recette = current_user.recettes.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,7 +40,7 @@ class RecettesController < ApplicationController
   # POST /recettes
   # POST /recettes.json
   def create
-    @recette = Recette.new(params[:recette])
+    @recette = current_user.recettes.new(params[:recette])
 
     respond_to do |format|
       if @recette.save
@@ -56,7 +56,7 @@ class RecettesController < ApplicationController
   # PUT /recettes/1
   # PUT /recettes/1.json
   def update
-    @recette = Recette.find(params[:id])
+    @recette = current_user.recettes.find(params[:id])
 
     respond_to do |format|
       if @recette.update_attributes(params[:recette])
@@ -72,7 +72,7 @@ class RecettesController < ApplicationController
   # DELETE /recettes/1
   # DELETE /recettes/1.json
   def destroy
-    @recette = Recette.find(params[:id])
+    @recette = current_user.recettes.find(params[:id])
     @recette.destroy
 
     respond_to do |format|
