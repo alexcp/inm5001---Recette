@@ -14,7 +14,8 @@
         <%= link_to "Recettes", root_path,:class=>"brand" %>
         <ul class="nav">
           <li class="active"><%= link_to "home", root_path %></li>
-          <!-- <li><%#= link_to "", ""%></li> --!>
+          <li><%= link_to "liste de recettes", :controller => "recipes", :action => "list" %></li>
+          <!-- <li><%#= link_to "", ""%></li> -->
         </ul>
       </div>
     </div>
