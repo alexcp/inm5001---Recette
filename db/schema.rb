@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130126183827) do
+ActiveRecord::Schema.define(:version => 20130126224236) do
 
   create_table "ingredients", :force => true do |t|
     t.datetime "created_at", :null => false
