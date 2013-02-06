@@ -1,0 +1,9 @@
+<h1><%= @recipe.name %></h1>
+<p>
+	<strong>Description: </strong> <%= @recipe.description %><br />
+	<strong>Étapes à suivres:</strong> <%= @recipe.details %><br />
+	<strong>Liste des ingrédients:</strong> - Non Implémenté -<br />
+	<strong>Date de création:</strong> <%= @recipe.created_at %>
+</p>
+<hr />
+<%= link_to 'Retourner à la liste', {:action => 'list'} %>

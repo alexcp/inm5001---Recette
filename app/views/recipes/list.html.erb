@@ -1,0 +1,17 @@
+<h1>Liste des recettes</h1>
+
+<% if @recipes.blank? %>
+	<p>Il n'y a aucune recette dans la base de données.</p>
+<% else %>
+	<ul id="recipes_list">
+		<% @recipes.each do |recipe| %>
+			<li class="recipe">
+				<%= h link_to recipe.name, {:action => 'show', :id => recipe.id} -%>:
+				<%= h recipe.description %>
+				<%= link_to 'Éditer', {:action => "edit", :id => recipe.id} %>
+			</li>
+		<% end %>
+	</ul>
+<% end %>
+<br />
+<p><%= link_to "Ajouter une nouvelle recette", {:action => 'new'} %></p>
