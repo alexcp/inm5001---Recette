@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= @recette.titre %></h1>
+<p><b>Description:</b> <%= @recette.description %></p>
+<p><b>Prépararion:</b> <%= @recette.preparation %></p>
 
 <%= link_to 'Edit', edit_recette_path(@recette) %> |
 <%= link_to 'Back', recettes_path %>
