@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th width="200">Titre</th>
     <th></th>
     <th></th>
     <th></th>
@@ -9,9 +10,10 @@
 
 <% @recettes.each do |recette| %>
   <tr>
-    <td><%= link_to 'Show', recette %></td>
-    <td><%= link_to 'Edit', edit_recette_path(recette) %></td>
-    <td><%= link_to 'Destroy', recette, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><b><%= recette.titre %></b></td>
+    <td class="option"><%= link_to 'Show', recette %></td>
+    <td class="option"><%= link_to 'Edit', edit_recette_path(recette) %></td>
+    <td class="option"><%= link_to 'Destroy', recette, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

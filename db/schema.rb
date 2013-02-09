@@ -13,11 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20130206015844) do
 
-  create_table "ingredients", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "recettes", :force => true do |t|
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
@@ -25,14 +20,6 @@ ActiveRecord::Schema.define(:version => 20130206015844) do
     t.string   "titre"
     t.string   "description"
     t.text     "preparation"
-  end
-
-  create_table "recipes", :force => true do |t|
-    t.string   "name",        :limit => 80, :null => false
-    t.text     "description",               :null => false
-    t.text     "details",                   :null => false
-    t.text     "user_id",                   :null => false
-    t.datetime "created_at",                :null => false
   end
 
   create_table "users", :force => true do |t|
