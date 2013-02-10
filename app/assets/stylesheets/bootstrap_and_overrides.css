@@ -5,3 +5,29 @@
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
   */
+.btn.disabled, .btn[disabled]{
+	opacity: 0.50;
+	filter: alpha(opacity=50);
+}
+
+.dropdown-menu li > span,
+.dropdown-menu li > a{
+	cursor:default;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.dropdown-menu li > span{
+	display:block;
+	padding:3px 20px;
+	clear:both;
+	font-weight:normal;
+	line-height:20px;
+	color:#999;
+	white-space:nowrap;
+}
+

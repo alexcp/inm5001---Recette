@@ -15,8 +15,24 @@
         <ul class="nav">
           <li class="active"><%= link_to "home", root_path %></li>
           <li><%= link_to "liste de recettes", recettes_path %></li>
-          <!-- <li><%#= link_to "", ""%></li> --!>
+          <!-- <li><%#= link_to "", ""%></li> -->
         </ul>
+        <% if session[:user_id]  %>
+        <div class="btn-group pull-right">
+          <a class="btn disabled" href="#">
+            <i class="icon-user icon-white"></i> User
+          </a>
+          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><span href="#"><i class="icon-pencil"></i> Edit</span></li>
+            <li><a href="#"><i class="icon-list-alt"></i> Nouvelle recette</a></li>
+            <li><a href="<%= signout_path %>"><i class="icon-remove"></i>Se déconnecter</a></li>
+          </ul>
+        </div>
+        <% end %>
+
       </div>
     </div>
 
