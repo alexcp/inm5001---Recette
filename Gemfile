@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
-gem 'pg'
+#gem 'pg'
 gem 'sqlite3'
 gem 'nested_form', '~> 0.2.3'
 gem 'jquery-rails'
@@ -10,6 +10,8 @@ gem 'thin'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-openid'
+gem 'bootstrap-sass'
+
 
 group :test, :development do
   gem 'rspec-rails'
