@@ -1,4 +1,6 @@
 Recettes::Application.routes.draw do
+  get "ingredients/new"
+  resources :ingredients
   resources :recettes
   root :to => "home#index"
 
