@@ -13,6 +13,18 @@
 
 ActiveRecord::Schema.define(:version => 20130216235245) do
 
+  create_table "categories", :force => true do |t|
+    t.integer "recette_id"
+    t.boolean "sans_lactose"
+    t.boolean "sans_gluten"
+    t.boolean "sans_noix"
+    t.boolean "congelable"
+    t.boolean "cachere"
+    t.boolean "vegetarien"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "ingredients", :force => true do |t|
     t.string   "nom"
     t.string   "categorie"
