@@ -16,3 +16,21 @@
 //= require best_in_place
 //= require twitter/bootstrap
 //= require_tree .
+
+$(document).ready(function() { 
+	$("#plus-options").hide();
+	$('#search-menu button[data-toggle="tooltip"]').bind({
+		click : function(e){
+			e.stopPropagation();
+			var data = $(e.target).attr('data-hidden');
+			if(data)
+	  			$(data).toggle('showOrHide');
+		},
+		mouseenter : function(){
+			$(this).tooltip('show');
+		},
+		mouseleave : function(){
+			$(this).tooltip('hide');
+		}
+	})
+});
