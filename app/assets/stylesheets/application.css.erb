@@ -12,3 +12,21 @@
  *= require_tree .
  */
  
+label .icon-*{
+	width:14px;
+    height:14px;
+    background-position: center center;
+}
+
+label .icon-sans-gluten {
+	background-image: url(<%= asset_path 'sans-gluten.gif' %>)!important;
+    /*background: url("/assets/sans-gluten.gif")!important;*/
+}
+
+label .icon-sans-lactose{
+    background: url(<%= asset_path 'sans-lactose.gif' %>)!important;
+}
+
+label .icon-sans-noix {
+    background: url(<%= asset_path 'sans-noix.gif' %>)!important;
+}
