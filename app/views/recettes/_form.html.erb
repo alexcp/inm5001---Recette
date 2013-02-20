@@ -1,4 +1,4 @@
-<%= form_for(@recette) do |f| %>
+<%= nested_form_for(@recette) do |f| %>
   <% if @recette.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@recette.errors.count, "error") %> prohibited this recette from being saved:</h2>
@@ -25,6 +25,11 @@
     <%= f.label :preparation %>
     <%= f.text_area :preparation %>
   </div>
+
+  <%= f.fields_for :ingredient_recettes do |ingredient| %>
+    <%= ingredient.link_to_remove '<i class="icon-trash" > </i> '.html_safe, :class=>"btn btn-danger" %>
+  <% end %>
+  <%= f.link_to_add "Ajouter un ingredient", :ingredient_recettes, :class=>"btn" %>
 
   <div class="actions">
     <%= f.submit %>
