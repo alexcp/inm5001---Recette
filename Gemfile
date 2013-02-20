@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
+gem 'nested_form', '~> 0.2.3'
 gem 'pg'
 gem 'sqlite3'
 gem 'nested_form', '~> 0.2.3'
