@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130206015844) do
+ActiveRecord::Schema.define(:version => 20130220220018) do
+
+  create_table "ingredients", :force => true do |t|
+    t.string   "nom"
+    t.string   "unite_de_mesure"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "recettes", :force => true do |t|
     t.datetime "created_at",  :null => false
