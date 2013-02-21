@@ -5,7 +5,15 @@ describe RecettesController do
     {
       titre: "Recette", 
       description: "Lorem Ipsum", 
-      preparation: "Lorem Ipsum" 
+      preparation: "Lorem Ipsum",
+      ingredient_recettes_attributes: {
+        new_1361401779748:{
+          nom: "beurre",
+          quantite: "50",
+          unite_de_mesure: "gramme",
+          _destroy: "false" 
+        }
+      }
     }
   end
 
@@ -16,6 +24,7 @@ describe RecettesController do
   before(:each) do
     user = FactoryGirl.create(:user)
     controller.stub(:current_user=>user)
+    Ingredient.stub(:find_by_nom=>mock_model(Ingredient))
   end
 
   it "should have a current user" do

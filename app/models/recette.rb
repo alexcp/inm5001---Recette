@@ -1,5 +1,5 @@
 class Recette < ActiveRecord::Base
-  attr_accessible :titre, :description, :preparation, :ingredient_recettes    
+  attr_accessible :titre, :description, :preparation, :ingredient_recettes_attributes
 
   belongs_to :user
   has_many :ingredient_recettes
