@@ -1,0 +1,48 @@
+
+
+
+<h1>Listing users</h1>
+
+<%= form_for(@ingredient, :remote => true, :update => "buttonAjout" ,:html => {:'data-type' => 'json'}) do %>
+<button class="btn btn-success" type="submit">Login</button>
+<% end %>
+
+
+
+
+<div id="test"><%= @ingredients.last.nom %></div>
+
+<form action="/ingredients" method="post"><button class="btn success" type="submit">rt</button></form>
+
+<div class="btn-group">
+  <button class="btn btn-inverse" id="buttonAjout">Ajouter un ingrédients</button>
+</div>
+<table class="table table-striped" id="table1">
+  <thead>
+  <tr>
+    <th>Nom</th>
+    <th>Categorie</th>
+    <th>Prix</th>
+    <th>Portion</th>
+    <th>Glucide</th>
+    <th>Proteine</th>
+  </tr>
+  </thead> 
+   <tbody>  
+<% @ingredients.each do |i| %>
+  <tr>
+    <td><%= best_in_place i, :nom %></td>
+    <td><%= best_in_place i, :categorie %></td>
+    <td><%= best_in_place i, :prix %></td>
+    <td><%= best_in_place i, :portion %></td>
+    <td><%= best_in_place i, :glucide %></td>
+    <td><%= best_in_place i, :proteine %></td>
+  </tr>
+   <tbody>  
+<% end %>
+</table>
+
+
+
+<br />
+
