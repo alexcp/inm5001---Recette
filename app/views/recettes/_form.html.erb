@@ -27,6 +27,15 @@
   </div>
 
   <%= f.fields_for :ingredient_recettes do |ingredient| %>
+    <%= ingredient.label :nom %>
+    <%= ingredient.text_field :nom %>
+
+    <%= ingredient.label :quantite %>
+    <%= ingredient.text_field :quantite %>
+
+    <%= ingredient.label :unite_de_mesure %>
+    <%= ingredient.select :unite_de_mesure, Ingredient::UNITE_DE_MESURE %>
+
     <%= ingredient.link_to_remove '<i class="icon-trash" > </i> '.html_safe, :class=>"btn btn-danger" %>
   <% end %>
   <%= f.link_to_add "Ajouter un ingredient", :ingredient_recettes, :class=>"btn" %>
