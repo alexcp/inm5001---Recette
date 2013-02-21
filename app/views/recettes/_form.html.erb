@@ -1,6 +1,6 @@
 <%= nested_form_for(@recette) do |f| %>
   <% if @recette.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="alert alert-error">
       <h2><%= pluralize(@recette.errors.count, "error") %> prohibited this recette from being saved:</h2>
 
       <ul>
