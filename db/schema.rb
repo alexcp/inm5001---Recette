@@ -22,9 +22,15 @@ ActiveRecord::Schema.define(:version => 20130220221900) do
 
   create_table "ingredients", :force => true do |t|
     t.string   "nom"
-    t.string   "unite_de_mesure"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.string   "categorie"
+    t.string   "portion"
+    t.string   "mesure"
+    t.decimal  "prix"
+    t.integer  "proteine"
+    t.integer  "glucide"
+    t.integer  "fat"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "recettes", :force => true do |t|

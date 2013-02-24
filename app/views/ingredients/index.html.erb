@@ -1,0 +1,53 @@
+<script>
+jQuery(function() {
+$("#buttonAjout").click(function(){
+  
+    
+  $.ajax({
+        type: "POST",
+        url: "", //sumbits it to the given url of the form
+        data: "",
+        dataType: 'html' 
+
+    }).success(function(a ,d ) {
+     
+      alert("saf")
+      
+     $("#ingredients").html("<%= escape_javascript(render(@ingredients)) %>")
+    
+    });
+      
+    return false; // prevents normal behaviour
+});
+});
+</script>
+<h1>Listing users</h1>
+
+<div id="ingredients">  
+<%= render @ingredients %>
+ </div> 
+
+
+<div class="btn-group">
+  <button class="btn btn-inverse" id="buttonAjout">Ajouter un ingrédients</button>
+</div>
+<table class="table table-striped" id="table1">
+  <thead>
+  <tr>
+    <th>Nom</th>
+    <th>Categorie</th>
+    <th>Prix</th>
+    <th>Portion</th>
+    <th>Glucide</th>
+    <th>Proteine</th>
+  </tr>
+  </thead> 
+   <tbody id="s">  
+
+ </tbody> 
+</table>
+
+
+
+<br />
+

@@ -12,6 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.purr
+//= require rails
+//= require best_in_place
 //= require twitter/bootstrap
 //= require_tree .
 //= require jquery_nested_form
