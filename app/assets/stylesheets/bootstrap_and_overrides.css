@@ -51,3 +51,7 @@
 .dropdown-menu li > ul > li > a:hover{
 	background:none;
 }
+
+body{
+  background-image:url('/assets/food.jpg');
+}
