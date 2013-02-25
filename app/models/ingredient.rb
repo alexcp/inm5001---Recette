@@ -1,6 +1,6 @@
 # encoding: utf-8
 class Ingredient < ActiveRecord::Base
-  attr_accessible :nom, :unite_de_mesure
+  attr_accessible :nom, :unite_de_mesure,:portion,:prix,:proteine,:glucide,:gras
 
   has_many :ingredient_recettes
   validates_presence_of :nom, :unite_de_mesure
