@@ -11,38 +11,63 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :titre %>
-    <%= f.text_field :titre %>
+  <div class="controls controls-row">
+    <div class="span5">
+      <h3 class="span5">Informations sur la recette</h3>
+      <div class="field">
+        <span class="icon icon-pencil span1"></span>
+        <%= f.text_field(:titre, :placeholder => "Titre de votre recette", :class => 'span4') %>
+      </div>
+      
+      <div class="field">
+        <span class="icon span2"><i class="icon-time"></i>Preparation</span>
+        <input type="text" class="span2" placeholder="0:00">
+        <%#= f.text_field(:temps_preparation, :placeholder => "0:00") %>
+      </div>
+      
+      <div class="field">
+        <span class="icon span2"><i class="icon-time"></i>Cuisson &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <input type="text" class="span2" placeholder="0:00">
+        <%#= f.text_field(:tempsCuisson, :placeholder => "0:00") %>
+      </div>
+      
+      <div class="field">
+        <span class="icon span2"><i class="icon-fire"></i>Puissance &nbsp;&nbsp;</span>
+        <div class="input-append span2">
+          <input type="text" class="input-small" placeholder="0">
+          <%#= f.text_field(:temperatureCuisson, :placeholder => "0") %>
+          <select class="input-small">
+            <option>Celcius</option>
+            <option>Fahren</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="field">
+        <span class="icon icon-list-alt span1"></span>
+        <%= f.text_area :preparation, :placeholder => "Les étapes de votre recette",:class => 'span4' %>
+      </div>
+      
+    </div>
+    
+    <div class="span6">
+      <h3>Liste des ingrédients</h3>
+      <%= f.link_to_add '<i class="icon-plus" > </i> '.html_safe, :ingredient_recettes, :class=>"btn btn-success" %>
+        <span><b>Ajouter un ingrédients</b></span>
+      <%= f.fields_for :ingredient_recettes do |ingredient| %>
+        <div class="field form-inline">
+          <span class="icon-leaf"></span>
+          <%= ingredient.text_field :nom, :class => 'input-large', :placeholder => 'Nom' %> 
+          <b>X</b>
+          <%= ingredient.text_field :quantite, :class => 'input-small' %>
+          <%= ingredient.select :unite_de_mesure, Ingredient::UNITE_DE_MESURE, {}, :class => "input-medium" %>
+          <%= ingredient.link_to_remove '<i class="icon-trash" > </i> '.html_safe, :class=>"btn btn-danger" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-  </div>
-
-  <div class="field">
-    <%= f.label :preparation %>
-    <%= f.text_area :preparation %>
-  </div>
-
-  <%= f.fields_for :ingredient_recettes do |ingredient| %>
-    <%= ingredient.label :nom %>
-    <%= ingredient.text_field :nom %>
-
-    <%= ingredient.label :quantite %>
-    <%= ingredient.text_field :quantite %>
-
-    <%= ingredient.label :unite_de_mesure %>
-    <%= ingredient.select :unite_de_mesure, Ingredient::UNITE_DE_MESURE %>
-
-    <%= ingredient.link_to_remove '<i class="icon-trash" > </i> '.html_safe, :class=>"btn btn-danger" %>
-  <% end %>
-  <%= f.link_to_add "Ajouter un ingredient", :ingredient_recettes, :class=>"btn" %>
-
-  <br />
-  <br />
   <div class="actions">
-    <%= f.submit :class=>"btn btn-success" %>
+    <%= f.submit :class=>"btn btn-success pull-right" %>
+    <%= link_to 'Retour', recettes_path, :class=>"btn btn-danger pull-right" %>
   </div>
 <% end %>
