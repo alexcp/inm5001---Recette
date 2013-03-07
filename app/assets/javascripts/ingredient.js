@@ -1,2 +1,10 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+$(document).ready(function(){
+  $("#modal_button").click(function(){
+    $.ajax("/ingredients/new",{
+      method: "GET",
+      success: function(data){
+        $(".modal-body").html(data);
+      }
+    });
+  });
+});

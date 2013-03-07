@@ -1,2 +1,35 @@
-<h1>Ingredient#index</h1>
-<p>Find me in app/views/ingredient/index.html.erb</p>
+<h1>Listing users</h1>
+
+<a id="modal_button" href="#myModal" role="button" class="btn btn-inverse" data-toggle="modal">Ajouter un ingrédients</a>
+
+<table class="table table-striped" id="table1">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Prix</th>
+      <th>Portion</th>
+      <th>Glucide</th>
+      <th>Proteine</th>
+    </tr>
+  </thead> 
+  <tbody>  
+    <% @ingredients.each do |ingredient| %>
+      <tr>
+        <td><%= ingredient.nom %></td>
+        <td><%= ingredient.prix %></td>
+        <td><%= ingredient.portion %></td>
+        <td><%= ingredient.glucide %></td>
+        <td><%= ingredient.proteine %></td>
+      </tr>
+    </tbody>  
+  <% end %>
+</table>
+ 
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-body">
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary">Save changes</button>
+  </div>
+</div>

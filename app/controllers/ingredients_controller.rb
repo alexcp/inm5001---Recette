@@ -28,7 +28,7 @@ class IngredientsController < ApplicationController
     @ingredient = Ingredient.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html { render layout: false}
       format.json { render json: @ingredient }
     end
   end
