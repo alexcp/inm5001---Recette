@@ -55,3 +55,7 @@
 body{
   background-image:url('/assets/food.jpg');
 }
+
+textarea{
+	resize:vertical;
+}
