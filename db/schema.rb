@@ -11,21 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130225022003) do
+ActiveRecord::Schema.define(:version => 20130309193030) do
 
   create_table "ingredient_recettes", :force => true do |t|
-    t.integer  "ingredient_id", :null => false
-    t.integer  "recette_id",    :null => false
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.integer  "ingredient_id",   :null => false
+    t.integer  "recette_id",      :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "unite_de_mesure"
+    t.string   "portion"
   end
 
   create_table "ingredients", :force => true do |t|
     t.string   "nom"
-    t.string   "unite_de_mesure"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-    t.string   "portion"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.decimal  "prix"
     t.integer  "proteine"
     t.integer  "glucide"
@@ -33,12 +33,15 @@ ActiveRecord::Schema.define(:version => 20130225022003) do
   end
 
   create_table "recettes", :force => true do |t|
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.integer  "user_id"
     t.string   "titre"
     t.string   "description"
     t.text     "preparation"
+    t.text     "temps_preparation"
+    t.text     "temps_cuisson"
+    t.text     "temperature_cuisson"
   end
 
   create_table "users", :force => true do |t|

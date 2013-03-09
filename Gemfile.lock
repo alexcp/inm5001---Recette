@@ -104,7 +104,6 @@ GEM
     omniauth-twitter (0.0.14)
       multi_json (~> 1.3)
       omniauth-oauth (~> 1.0)
-    pg (0.14.1)
     polyglot (0.3.3)
     rack (1.4.4)
     rack-cache (1.2)
@@ -187,7 +186,6 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-openid
   omniauth-twitter
-  pg
   rails (= 3.2.11)
   rspec-rails
   sass-rails (~> 3.2.3)
