@@ -3,6 +3,6 @@ class Recette < ActiveRecord::Base
 
   belongs_to :user
   has_many :ingredient_recettes
-  validates_presence_of :titre, :description, :preparation, :temps_preparation, :temps_cuisson, :temperature_cuisson, :user_id
+  validates_presence_of :titre, :preparation, :temps_preparation, :temps_cuisson, :temperature_cuisson, :user_id
   accepts_nested_attributes_for :ingredient_recettes, :allow_destroy => true
 end

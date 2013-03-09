@@ -21,21 +21,18 @@
       
       <div class="field">
         <span class="icon span2"><i class="icon-time"></i>Preparation</span>
-        <input type="text" class="span2" placeholder="0:00">
-        <%#= f.text_field(:temps_preparation, :placeholder => "0:00") %>
+        <%= f.text_field(:temps_preparation, :placeholder => "0:00") %>
       </div>
       
       <div class="field">
         <span class="icon span2"><i class="icon-time"></i>Cuisson &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <input type="text" class="span2" placeholder="0:00">
-        <%#= f.text_field(:tempsCuisson, :placeholder => "0:00") %>
+        <%= f.text_field(:temps_cuisson, :placeholder => "0:00") %>
       </div>
       
       <div class="field">
         <span class="icon span2"><i class="icon-fire"></i>Puissance &nbsp;&nbsp;</span>
         <div class="input-append span2">
-          <input type="text" class="input-small" placeholder="0">
-          <%#= f.text_field(:temperatureCuisson, :placeholder => "0") %>
+          <%= f.text_field(:temperature_cuisson, :placeholder => "0") %>
           <select class="input-small">
             <option>Celcius</option>
             <option>Fahren</option>
