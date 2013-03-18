@@ -10,14 +10,14 @@
 
 <% @recettes.each do |recette| %>
   <tr>
+    <td><%= image_tag recette.photo.url(:small), :class => "img_preview" %></td>
     <td><b><%= recette.titre %></b></td>
-    <td class="option"><%= link_to 'Show', recette %></td>
-    <td class="option"><%= link_to 'Edit', edit_recette_path(recette) %></td>
-    <td class="option"><%= link_to 'Destroy', recette, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td class="option"><%= link_to 'Edit', edit_recette_path(recette) , :class=>"btn btn-inverse" %></td>
+    <td class="option"><%= link_to 'Destroy', recette, method: :delete, data: { confirm: 'Are you sure?' } , :class=>"btn btn-inverse" %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'Nouvelle Recette', new_recette_path, :class=>"btn btn-primary" %>
+<%= link_to 'Nouvelle Recette', new_recette_path, :class=>"btn btn-inverse" %>

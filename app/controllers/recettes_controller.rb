@@ -63,7 +63,7 @@ class RecettesController < ApplicationController
   # PUT /recettes/1.json
   def update
     @recette = current_user.recettes.find(params[:id])
-
+    p  params[:recette]
     respond_to do |format|
       if @recette.update_attributes(params[:recette])
         format.html { redirect_to @recette, :flash => {:notice => "La recette à été enregistré."} }
@@ -86,4 +86,9 @@ class RecettesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def updatePhoto
+      p "test"
+  end
+
 end

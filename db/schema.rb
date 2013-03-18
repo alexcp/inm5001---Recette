@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130309193030) do
+ActiveRecord::Schema.define(:version => 20130317161258) do
 
   create_table "ingredient_recettes", :force => true do |t|
     t.integer  "ingredient_id",   :null => false
@@ -42,6 +42,10 @@ ActiveRecord::Schema.define(:version => 20130309193030) do
     t.text     "temps_preparation"
     t.text     "temps_cuisson"
     t.text     "temperature_cuisson"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "users", :force => true do |t|

@@ -1,3 +1,42 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.container{
+	margin:0 auto;
+	padding:10px;
+	background-color:rgba(255, 255, 255, 0.4);
+}
+
+div.form-inline{
+	margin-bottom:10px;
+}
+
+.field{clear:both;}
+.field span.icon{
+	line-height:2.2em;
+}
+.invisibleInput{
+	background-color:transparent; 
+	outline: none;
+ 	border:none;
+  	box-shadow:none;
+}
+.espace{
+  
+  margin:0px 0px 0px 10px;
+}
+.boxImage{
+	 width:130px;
+	 height:130px;
+	
+}
+.cache{
+	visibility:hidden
+}
+.img_preview{
+ margin:0px 0px 10px 0px;
+	min-width:130px;
+	min-height:130px;
+	max-width:130px;
+	max-height:130px;
+}

@@ -1,4 +1,9 @@
+
 <%= nested_form_for(@recette) do |f| %>
+<a id="modal_button" href="#myModal" role="button" class="btn btn-inverse" >Éditer la recette</a>
+<%= f.submit :class=>"btn btn-inverse pull-right espace" %>
+<%= link_to 'Retour', recettes_path, :class=>"btn btn-inverse pull-right" %>
+
   <% if @recette.errors.any? %>
     <div id="error_explanation" class="alert alert-error">
       <h2><%= pluralize(@recette.errors.count, "error") %> prohibited this recette from being saved:</h2>
@@ -10,61 +15,52 @@
       </ul>
     </div>
   <% end %>
-
   <div class="controls controls-row">
     <div class="span5">
       <h3 class="span5">Informations sur la recette</h3>
+      
+       <%= image_tag @recette.photo.url(:small), :class => "img_preview" %>
+       
+       <div class="cache"> <%= f.file_field :photo , :class=> "upload", :readonly => true %> </div>
       <div class="field">
         <span class="icon icon-pencil span1"></span>
-        <%= f.text_field(:titre, :placeholder => "Titre de votre recette", :class => 'span4') %>
+        <%= f.text_field(:titre, :placeholder => "Titre de votre recette", :class => 'span4', :readonly => true) %>
       </div>
       
       <div class="field">
         <span class="icon span2"><i class="icon-time"></i>Preparation</span>
-        <%= f.text_field(:temps_preparation, :placeholder => "0:00") %>
+        <%= f.text_field(:temps_preparation, :placeholder => "0:00", :readonly => true) %>
       </div>
       
       <div class="field">
-        <span class="icon span2"><i class="icon-time"></i>Cuisson &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <%= f.text_field(:temps_cuisson, :placeholder => "0:00") %>
+        <span class="icon span2"><i class="icon-time"></i>Cuisson</span>
+        <%= f.text_field(:temps_cuisson, :placeholder => "0:00" ,:readonly => true) %>
       </div>
       
-      <div class="field">
-        <span class="icon span2"><i class="icon-fire"></i>Puissance &nbsp;&nbsp;</span>
-        <div class="input-append">
-          <%= f.text_field(:temperature_cuisson, :placeholder => "0") %>
-          <select class="input-mini">
-            <option>C</option>
-            <option>F</option>
-          </select>
-        </div>
-      </div>
+      
       
       <div class="field">
         <span class="icon icon-list-alt span1"></span>
-        <%= f.text_area :preparation, :placeholder => "Les étapes de votre recette",:class => 'span4' %>
+        <%= f.text_area :preparation, :placeholder => "Les étapes de votre recette",:class => 'span4' , :readonly => true %>
       </div>
       
     </div>
     
     <div class="span6">
       <h3>Liste des ingrédients</h3>
-      <%= f.link_to_add '<i class="icon-plus" > </i> '.html_safe, :ingredient_recettes, :class=>"btn btn-success" %>
+      <%= f.link_to_add '<i class="icon-plus" > </i> '.html_safe, :ingredient_recettes, :class=>"btn btn-success cache" %>
         <span><b>Ajouter un ingrédients</b></span>
       <%= f.fields_for :ingredient_recettes do |ingredient| %>
         <div class="field form-inline">
           <span class="icon-leaf"></span>
-          <%= ingredient.text_field :nom, :class => 'input-large', :placeholder => 'Nom' %> 
+          <%= ingredient.text_field :nom, :class => 'input-large', :placeholder => 'Nom' , :readonly => true%> 
           <b>X</b>
-          <%= ingredient.text_field :portion, :class => 'input-small' %>
-          <%= ingredient.select :unite_de_mesure, IngredientRecette::UNITE_DE_MESURE, {}, :class => "input-medium" %>
+          <%= ingredient.text_field :portion, :class => 'input-small'  %>
+          <%= ingredient.select :unite_de_mesure, IngredientRecette::UNITE_DE_MESURE, {}, :class => "input-medium"  %>
           <%= ingredient.link_to_remove '<i class="icon-trash" > </i> '.html_safe, :class=>"btn btn-danger" %>
         </div>
       <% end %>
     </div>
   </div>
-  <div class="actions">
-    <%= f.submit :class=>"btn btn-success pull-right" %>
-    <%= link_to 'Retour', recettes_path, :class=>"btn btn-danger pull-right" %>
-  </div>
+ 
 <% end %>

@@ -11,6 +11,7 @@ gem 'thin'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-openid'
+gem "paperclip", "~> 3.4.1"
 
 group :test, :development do
   gem 'rspec-rails'

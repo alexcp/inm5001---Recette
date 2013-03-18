@@ -19,14 +19,10 @@ class IngredientRecette < ActiveRecord::Base
   end
 
   def assigne_un_ingredient
-    if
-      self.ingredient = trouve_lingredient_correspondante
-    else
-      errors.add :nom, "Ingredient non existant introuvable"
-    end
+  true
   end
 
   def trouve_lingredient_correspondante
-    Ingredient.find_by_nom(nom)
+   true
   end
 end
