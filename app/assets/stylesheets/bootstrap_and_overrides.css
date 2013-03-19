@@ -57,5 +57,6 @@ body{
 }
 
 textarea{
-	resize:vertical;
+	resize:none;
+	height:150px;
 }

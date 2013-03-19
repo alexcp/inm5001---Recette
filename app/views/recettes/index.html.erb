@@ -20,4 +20,74 @@
 
 <br />
 
-<%= link_to 'Nouvelle Recette', new_recette_path, :class=>"btn btn-primary" %>
+<a id="modal_button" href="#myModal" role="button" class="btn btn-inverse" data-toggle="modal">Créer une nouvelle recette</a>
+
+<%= nested_form_for(@recette) do |f| %>
+<div id="myModal" class="modal modal_recette hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <h3>NOUVELLE RECETTE</h3>
+  <div class="modal-body controls controls-row">
+    <ul class="nav nav-tabs" id="myTab">
+      <li class="active"><a href="#details" data-toggle="tab">Détails</a></li>
+      <li><a href="#ingredients" data-toggle="tab">Ingrédients</a></li>
+      </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="details" style="margin-top:-10px;">
+        <div class="field">
+          <label>Titre</label>
+          <%= f.text_field(:titre, :placeholder => "Titre de votre recette", :class => 'span5') %>
+        </div>
+        <div class="field"> 
+          <label>
+            Préparation 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Cuisson
+          </label>
+          <span class="span3">
+            <%= f.text_field(:temps_preparation, :placeholder => "0:00", :class => "span2") %>
+          </span>
+          <%= f.text_field(:temps_cuisson, :placeholder => "0:00", :class => "span2") %>
+        </div>
+        <div class="field">
+          <div class="input-append">
+            <label>Température</label>
+            <%= f.text_field(:temperature_cuisson, :placeholder => "0", :class => "span2") %>
+            <select class="span3">
+              <option>Celsius</option>
+              <option>Farenheight</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>Les étapes</label>
+          <%= f.text_area :preparation, :placeholder => "Les étapes de votre recette",:class => 'span5' %>
+        </div>
+      </div>
+      <div class="tab-pane" id="ingredients">
+        <%= f.link_to_add '<i class="icon-plus" > </i> '.html_safe, :ingredient_recettes, :class=>"btn btn-success", 
+            :style => "position: absolute; top: 20px; left: 453px;" %>
+        <%= f.fields_for :ingredient_recettes do |ingredient| %>
+          <div class="field form-inline">
+            <%= ingredient.text_field :nom, :class => 'span2', :placeholder => 'Nom' %> 
+            <b style="float:left;line-height: 2.2em">X</b>
+            <%= ingredient.text_field :portion, :class => 'span1' %>
+            <%= ingredient.select :unite_de_mesure, IngredientRecette::UNITE_DE_MESURE, {}, :class => "span2", :style => "margin-left:0;" %>
+            <%= ingredient.link_to_remove '<i class="icon-trash" > </i> '.html_safe, :class=>"btn btn-danger" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary">Save changes</button>
+  </div>
+</div>
+<% end %>
+
+
+<!-- br / -->
+
+<%#= link_to 'Nouvelle Recette', new_recette_path, :class=>"btn btn-primary" %>

@@ -4,7 +4,8 @@ class RecettesController < ApplicationController
   # GET /recettes.json
   def index
     @recettes = Recette.all
-
+    @recette = current_user.recettes.new
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @recettes }
