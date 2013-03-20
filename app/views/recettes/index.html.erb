@@ -1,4 +1,15 @@
+
+
+
 <h1>Liste des recettes</h1>
+
+
+<%= form_tag recettes_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :class=>"btn btn-inverse  espace" %>
+  </p>
+<% end %>
 
 <table>
   <tr>

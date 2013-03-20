@@ -25,4 +25,6 @@ class IngredientRecette < ActiveRecord::Base
   def trouve_lingredient_correspondante
    true
   end
+
+  
 end

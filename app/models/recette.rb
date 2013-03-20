@@ -16,4 +16,13 @@ validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image
   has_many :ingredient_recettes
   validates_presence_of :titre, :preparation, :temps_preparation, :temps_cuisson, :user_id
   accepts_nested_attributes_for :ingredient_recettes, :allow_destroy => true
+
+def self.search(search)
+  if search
+    find(:all, :conditions => ['preparation LIKE ?', "%#{search}%"])
+  else
+    find(:all)
+  end
+end
+
 end
