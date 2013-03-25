@@ -4,12 +4,16 @@
 <h1>Liste des recettes</h1>
 
 
-<%= form_tag recettes_path, :method => 'get' do %>
+<%= nested_form_for "/recettes",  :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :class=>"btn btn-inverse  espace" %>
+    <%= select_tag :Recherche, options_for_select(IngredientRecette::UNITE_DE_RECHERCHE), :class => "input-medium"  %>
+    <%= submit_tag "Search", :class=>"btn btn-inverse espace" %>
   </p>
 <% end %>
+
+
+
 
 <table>
   <tr>

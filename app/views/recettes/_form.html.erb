@@ -48,18 +48,21 @@
     
     <div class="span6">
       <h3>Liste des ingrédients</h3>
-      <%= f.link_to_add '<i class="icon-plus" > </i> '.html_safe, :ingredient_recettes, :class=>"btn btn-success cache" %>
-        <span><b>Ajouter un ingrédients</b></span>
-      <%= f.fields_for :ingredient_recettes do |ingredient| %>
+     
+      <%= f.fields_for :ingredient_recettes do |ingredient| -%>
         <div class="field form-inline">
           <span class="icon-leaf"></span>
           <%= ingredient.text_field :nom, :class => 'input-large', :placeholder => 'Nom' , :readonly => true%> 
           <b>X</b>
           <%= ingredient.text_field :portion, :class => 'input-small'  %>
           <%= ingredient.select :unite_de_mesure, IngredientRecette::UNITE_DE_MESURE, {}, :class => "input-medium"  %>
+          <%= ingredient.hidden_field :recette_id, :value => @recette.id %>
           <%= ingredient.link_to_remove '<i class="icon-trash" > </i> '.html_safe, :class=>"btn btn-danger" %>
+
         </div>
       <% end %>
+        <%= f.link_to_add '<i class="icon-plus" > </i> '.html_safe, :ingredient_recettes, :class=>"btn btn-success cache" %>
+        <span class="cache"><b>Ajouter un ingrédients</b></span>
     </div>
   </div>
  
