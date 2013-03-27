@@ -1,5 +1,5 @@
 class Recette < ActiveRecord::Base
-  attr_accessible :titre, :description, :preparation, :ingredient_recettes_attributes, :temps_preparation, :temps_cuisson, :temperature_cuisson, :photo
+  attr_accessible :titre, :description, :preparation, :ingredient_recettes_attributes, :temperature_cuisson, :photo
 
   has_attached_file :photo, :default_url => "defaultRecipe.jpg",  :styles => {
     :thumb=> "100x100#",
@@ -15,7 +15,7 @@ class Recette < ActiveRecord::Base
 
   belongs_to :user 
   has_many :ingredient_recettes 
-  validates_presence_of :titre, :preparation, :temps_preparation, :temps_cuisson, :user_id
+  validates_presence_of :titre, :preparation, :user_id
   accepts_nested_attributes_for :ingredient_recettes, :allow_destroy => true
 
  def accepts_nested_attributes_for(*attr_names)
