@@ -7,21 +7,15 @@ class Recette < ActiveRecord::Base
     :medium => "300x300>",
     :large =>   "400x400>" }
 
-  validates_associated :ingredient_recettes
+  #validates_associated :ingredient_recettes
   validates_attachment_size :photo, :less_than => 5.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png', 'image/jpg']
-
-
 
   belongs_to :user 
   has_many :ingredient_recettes 
   validates_presence_of :titre, :preparation, :user_id
   accepts_nested_attributes_for :ingredient_recettes, :allow_destroy => true
 
- def accepts_nested_attributes_for(*attr_names)
-  super()
-  p "salut"
-end
 
   def self.search(search, recherche)
     if search
@@ -43,7 +37,4 @@ end
       find(:all)
     end
   end
-
-
-
 end
