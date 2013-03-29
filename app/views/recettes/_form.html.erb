@@ -43,7 +43,7 @@
           <%= ingredient.text_field :nom, :class => 'input-large', :placeholder => 'Nom' , :readonly => true%> 
           <b>X</b>
           <%= ingredient.text_field :portion, :class => 'input-small'  %>
-          <%= ingredient.select :unite_de_mesure, IngredientRecette::UNITE_DE_MESURE, {}, :class => "input-medium"  %>
+          <%= ingredient.select :unite_de_mesure, Ingredient::UNITE_DE_MESURE, {}, :class => "input-medium"  %>
           <%= ingredient.hidden_field :recette_id, :value => @recette.id %>
           <%= ingredient.link_to_remove '<i class="icon-trash" > </i> '.html_safe, :class=>"btn btn-danger" %>
 

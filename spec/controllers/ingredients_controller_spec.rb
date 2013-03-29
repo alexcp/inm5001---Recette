@@ -5,8 +5,6 @@ describe IngredientsController do
   def valid_attributes
     {
       nom: "farine",
-      unite_de_mesure: "gramme",
-      portion: "10",
       prix: 9.99,
       proteine: 100,
       glucide: 100,

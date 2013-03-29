@@ -59,7 +59,7 @@ class IngredientsController < ApplicationController
   # PUT /ingredients/1.json
   def update
     @ingredient = Ingredient.find(params[:id])
- @ingredient.ingredient_recettes.build
+
     respond_to do |format|
       if @ingredient.update_attributes(params[:ingredient])
         format.html { redirect_to @ingredient, :flash => {:notice => "La ingredient à été enregistré."} }

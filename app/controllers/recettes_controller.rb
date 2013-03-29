@@ -10,7 +10,6 @@ class RecettesController < ApplicationController
     end
   end
 
-  
   # GET /recettes/1
   # GET /recettes/1.json
   def show
@@ -27,7 +26,6 @@ class RecettesController < ApplicationController
   def new
     begin
       @recette = current_user.recettes.new
-      @recette.ingredient_recettes.build
     rescue NoMethodError
       redirect_to root_path, :flash => {:error => "Vous devez être enregistré."}
       return
@@ -63,10 +61,7 @@ class RecettesController < ApplicationController
   # PUT /recettes/1
   # PUT /recettes/1.json
   def update
-    
     @recette = current_user.recettes.find(params[:id])
-  
-  
     respond_to do |format|
       if @recette.update_attributes(params[:recette])
         format.html { redirect_to @recette, :flash => {:notice => "La recette a été enregistré."} }
@@ -89,9 +84,4 @@ class RecettesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  def updatePhoto
-      p "test"
-  end
-
 end

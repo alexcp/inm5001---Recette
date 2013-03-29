@@ -10,6 +10,7 @@ describe RecettesController do
         new_1361401779748:{
           nom: "beurre",
           quantite: "50",
+          portion: 2,
           unite_de_mesure: "gramme",
           _destroy: "false" 
         }
