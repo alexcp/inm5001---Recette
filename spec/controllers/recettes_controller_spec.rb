@@ -9,8 +9,7 @@ describe RecettesController do
       ingredient_recettes_attributes: {
         new_1361401779748:{
           nom: "beurre",
-          quantite: "50",
-          portion: 2,
+          quantite: 2,
           unite_de_mesure: "gramme",
           _destroy: "false" 
         }

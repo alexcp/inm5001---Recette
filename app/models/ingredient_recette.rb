@@ -1,10 +1,9 @@
 class IngredientRecette < ActiveRecord::Base
-  attr_accessible  :nom, :portion, :unite_de_mesure, :recette_id, :quantite, :portion
-  attr_accessor  :nom, :portion, :unite_de_mesure, :recette_id
-  validates_presence_of :nom, :portion, :unite_de_mesure
-
+  attr_accessible :nom, :portion, :unite_de_mesure, :recette_id, :quantite, :portion
   belongs_to :ingredient
   belongs_to :recette 
+
+  validates_presence_of :nom, :quantite, :unite_de_mesure, :ingredient
 
   before_validation :assigne_un_ingredient
 

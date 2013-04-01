@@ -1,4 +1,3 @@
-
 <%= nested_form_for(@recette) do |f| %>
   <% if @recette.errors.any? %>
     <div id="error_explanation" class="alert alert-error">
@@ -38,7 +37,7 @@
           <span class="icon-leaf"></span>
           <%= ingredient.text_field :nom, :class => 'input-large', :placeholder => 'Nom'%> 
           <b>X</b>
-          <%= ingredient.text_field :portion, :class => 'input-small'  %>
+          <%= ingredient.text_field :quantite, :class => 'input-small'  %>
           <%= ingredient.select :unite_de_mesure, Ingredient::UNITE_DE_MESURE, {}, :class => "input-medium"  %>
           <%= ingredient.link_to_remove '<i class="icon-trash" > </i> '.html_safe, :class=>"btn btn-danger" %>
         </div>

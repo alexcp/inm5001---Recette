@@ -46,7 +46,6 @@ class RecettesController < ApplicationController
   # POST /recettes.json
   def create
     @recette = current_user.recettes.new(params[:recette])
-
     respond_to do |format|
       if @recette.save
         format.html { redirect_to @recette, :flash => {:notice => "La recette a été enregistré."} }
