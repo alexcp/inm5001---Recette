@@ -4,7 +4,7 @@ class Ingredient < ActiveRecord::Base
 
   has_many :ingredient_recettes
 
-  validates :nom, :presence => true
+  validates :nom, :presence => true, :uniqueness =>true
 
   UNITE_DE_MESURE = ["gramme(s)","mililitre(s)","litre(s)","cuillière(s) à table","cuillière(s) à thé","tasse(s)", "unité(s)", "douzaine(s)"]
 

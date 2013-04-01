@@ -11,12 +11,7 @@ class IngredientRecette < ActiveRecord::Base
   UNITE_DE_RECHERCHE = [:Titre,:Ingredient]
 
   def assigne_un_ingredient
-    self.ingredient = trouve_lingredient_correspondante
-    errors.add(:nom, "Recette Introuvable") unless self.ingredient
-  end
-
-  def trouve_lingredient_correspondante
-    Ingredient.find_by_nom(nom)
+    self.ingredient = trouve_ou_cree_ingredient
   end
 
   def self.search(search, recherche)
@@ -45,5 +40,11 @@ class IngredientRecette < ActiveRecord::Base
     else
       find(:all)
     end
+  end
+
+  private
+
+  def trouve_ou_cree_ingredient
+    Ingredient.find_by_nom(nom) || Ingredient.create!( nom: nom )
   end
 end
