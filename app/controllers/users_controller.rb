@@ -3,6 +3,11 @@ class UsersController < ApplicationController
     @user = User.find params[:id]
   end
 
+  def profile
+    @user = current_user
+    render "show"
+  end
+
   def recettes
     @recettes = current_user.recettes
   end

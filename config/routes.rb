@@ -1,6 +1,7 @@
 Recettes::Application.routes.draw do
 
   get "users/:id", to: "users#show"
+  get "profile", to: "users#profile"
   get "mes_recettes", to: "users#recettes"
 
   get "vote_up/:recette_id", to: "users#vote_up"
