@@ -22,6 +22,12 @@
         <%= f.text_field :titre, :placeholder => "Titre de votre recette", :class => 'span4'%>
       </div>
 
+
+      <div class="field">
+        <span class="icon icon-list-alt span1"></span>
+        <%= f.text_area :description, :placeholder => "Courte description de la recette",:class => 'span4', :rows=>2 %>
+      </div>
+
       <div class="field">
         <span class="icon icon-list-alt span1"></span>
         <%= f.text_area :preparation, :placeholder => "Les étapes de votre recette",:class => 'span4' %>
