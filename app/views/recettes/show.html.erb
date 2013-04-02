@@ -1,4 +1,11 @@
 <h1><%= @recette.titre.titleize %></h1>
+<a href="/vote_up/<%= @recette.id %>" class="btn <%= "btn-info" if current_user.voted_up_on? @recette %>">
+  <i class="icon-thumbs-up"> </i><%= @recette.likes.count %>
+</a>
+<a href="/vote_down/<%= @recette.id %>" class="btn <%= "btn-info" if current_user.voted_down_on? @recette %>">
+  <i class="icon-thumbs-down"> </i><%= @recette.dislikes.count %>
+</a>
+
 <div class="row">
   <div class="span8">
     <h3>Description</h3>
@@ -10,7 +17,8 @@
   </div>
   <div class="span4">
     <h3>Ingrédients</h3>
-      <table class="table">
+    <hr />
+      <table class="table table-striped">
     <% @recette.ingredient_recettes.each do |ingredient| %>
       <tr>
         <td>
@@ -25,5 +33,5 @@
 </div>
 <br />
 <hr />
-<%= link_to 'Modifier', edit_recette_path(@recette), :class=>"btn btn-info"%>
+<%= link_to 'Modifier', edit_recette_path(@recette), :class=>"btn btn-inverse"%>
 <%= link_to 'Retour', recettes_path, :class=>"btn"%>

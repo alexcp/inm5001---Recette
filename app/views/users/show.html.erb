@@ -1,4 +1,6 @@
 <h1><%= @user.name %></h1>
 
-<h2>Favorites</h2>
-<hr />
+<h3>Favoris</h3>
+<% @user.find_liked_items.each do |recette| %>
+  <%= link_to recette.titre.titleize, recette %>
+<% end %>
