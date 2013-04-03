@@ -1,5 +1,61 @@
-<h1>Home</h1>
-<div>
-  <p>Sign In</p>
-  <%= sign_in_buttons %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Recettes</title>
+    <%= stylesheet_link_tag "home", :media => "all" %>
+    <%= stylesheet_link_tag "bootstrap_and_overrides", :media => "all" %>
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+
+    <div id="home_banner" class="jumbotron">
+      <div class="container">
+        <div class="row">
+          <div class="span4">
+            <a id="logo" href="/"><i class="icon-food"></i></a>
+          </div>
+          <div class="offset5 span3">
+            <ul class="nav nav-pills">
+              <li><%= link_to "Découvrez", "/recettes"%></li>
+              <li><%= link_to "Créer", "/recettes/new"%></li>
+              <li><a href="#login_modal" data-toggle="modal">Connection</a></li>
+          </ul>
+          </div>
+        </div>
+        <div id="home-text" class="row">
+          <div class="offset3 span5 input-append">
+            <h1>Partagez et Découvrez des recettes</h1>
+            <form action="/recettes" method="get">
+              <input name="q" type="search" class="span5" placeholder="Trouvez une recette">
+              <input class="btn btn-info" type="submit" value="Rechercher">
+          </form>
+        </div>
+        <div class="row">
+          <div class="offset4 span4">
+            <a href="#login_modal" class="btn btn-large btn-block btn-primary" data-toggle="modal">Devenez un Chef</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
+
+<div id="login_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+    <h3 id="myModalLabel">Créer un compte</h3>
+  </div>
+  <div class="modal-body">
+    <%= sign_in_buttons %>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Fermer</button>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,3 +1,32 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#home_banner{
+  background:url("/assets/banner_home.png") no-repeat;
+  background-size:cover;
+  height:30em;
+  width:100%;
+  color:#fff;
+  padding-top:40px;
+}
+
+#home_banner a{
+  color:#fff;
+  font-weight:bold;
+}
+#logo:hover{
+  text-decoration:none;
+}
+
+#home_banner .nav>li>a:hover{
+  background-color:#000;
+}
+
+#home-text{
+  margin-top:80px;
+}
+
+#logo{
+  font-size:50px;
+}
