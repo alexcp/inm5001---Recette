@@ -1,0 +1,8 @@
+<h1>Recherche</h1>
+<ul>
+<% @recettes.each do |recette| %>
+  <li>
+    <%= link_to recette.titre, recette %>
+  </li>
+<% end %>
+</ul>
