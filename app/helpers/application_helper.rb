@@ -1,6 +1,6 @@
 module ApplicationHelper
   def sign_in_with provider
-    link_to "Sign In With your #{provider.titleize} account", "/auth/#{provider}", :class => "btn btn-success"
+    link_to "<i class='icon-#{provider}'></i> Sign In With #{provider.titleize}".html_safe, "/auth/#{provider}", :class => "btn"
   end
 
   def sign_in_buttons
