@@ -1,17 +1,10 @@
-label .icon-*{
-	width:14px;
-    height:14px;
-    background-position: center center;
+#topbar a{
+  color:#000;
 }
 
-label .icon-sans-gluten {
-	background-image: url("/assets/sans_gluten.gif")!important;
-}
-
-label .icon-sans-lactose{
-	background: url("/assets/sans_lactose.gif")!important;
-}
-
-label .icon-sans-noix {
-	background: url("/assets/sans_noix.gif")!important;
+#topbar{
+  padding:20px 0;
+  border-bottom:solid 1px #dcdcdc;
+  margin-bottom:20px;
+  background:#f5f5f5;
 }
