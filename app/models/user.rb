@@ -11,4 +11,8 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+
+  def real_user?
+    true
+  end
 end

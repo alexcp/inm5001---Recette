@@ -14,13 +14,13 @@ class UsersController < ApplicationController
 
   def vote_up
     recette = Recette.find params[:recette_id]
-    recette.liked_by current_user
+    recette.liked_by current_user if current_user.real_user?
     redirect_to recette
   end
 
   def vote_down
     recette = Recette.find params[:recette_id]
-    recette.disliked_by current_user
+    recette.disliked_by current_user if current_user.real_user?
     redirect_to recette
   end
 end
