@@ -23,4 +23,12 @@ module ApplicationHelper
       flash[type]
     end
   end
+
+  def login
+    if current_user.real_user?
+      link_to "Profile", "/users/#{current_user.id}"
+    else
+      link_to "Connection", "#login_modal", data:{toggle:'modal'}
+    end
+  end
 end
