@@ -8,6 +8,8 @@
 
 <div class="row">
   <div class="span8">
+    <br>
+    <%= image_tag @recette.photo.url(:medium), :class => "img_preview" %>
     <h3>Description</h3>
     <hr />
     <%= @recette.description %>

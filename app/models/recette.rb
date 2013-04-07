@@ -5,7 +5,7 @@ class Recette < ActiveRecord::Base
   has_attached_file :photo, :default_url => "defaultRecipe.jpg",  :styles => {
     :thumb=> "100x100#",
     :small  => "150x150>",
-    :medium => "300x300>",
+    :medium => "200x200>",
     :large =>   "400x400>" }
 
   #validates_associated :ingredient_recettes
