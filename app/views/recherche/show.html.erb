@@ -1,16 +1,8 @@
-<div class="row">
-    <h1>Recherche</h1>
-  <div class="input-append">
-    <%= render 'search_bar' %>
-  </div>
+<h1>Recherche</h1>
+<div class="input-append">
+  <%= render 'search_bar' %>
 </div>
 <hr />
 
 
-<ul>
-  <% @recettes.each do |recette| %>
-    <li>
-      <%= link_to recette.titre, recette %>
-    </li>
-  <% end %>
-</ul>
+<%= render 'recettes/listesRecettes' %>
