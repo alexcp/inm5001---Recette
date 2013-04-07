@@ -1,3 +1,6 @@
+
+
+
 <%= nested_form_for(@recette) do |f| %>
   <% if @recette.errors.any? %>
     <div id="error_explanation" class="alert alert-error">
@@ -41,7 +44,7 @@
       <%= f.fields_for :ingredient_recettes do |ingredient| -%>
         <div class="field form-inline">
           <span class="icon-leaf"></span>
-          <%= ingredient.text_field :nom, :class => 'input-large', :placeholder => 'Nom'%> 
+          <%= ingredient.text_field :nom, :class => 'input-large autocomplete', :placeholder => 'Nom', :autocomplete => "off", :onclick => 'recherchable(this)' %> 
           <b>X</b>
           <%= ingredient.text_field :quantite, :class => 'input-small'  %>
           <%= ingredient.select :unite_de_mesure, Ingredient::UNITE_DE_MESURE, {}, :class => "input-medium"  %>
