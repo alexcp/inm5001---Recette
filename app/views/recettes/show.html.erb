@@ -9,7 +9,7 @@
 <div class="row">
   <div class="span8">
     <br>
-    <%= image_tag @recette.photo.url(:medium), :class => "img_preview" %>
+    <a href="#img_modal" data-toggle="modal"><%= image_tag @recette.photo.url(:medium), :class => "img_preview" %></a>
     <h3>Description</h3>
     <hr />
     <%= @recette.description %>
@@ -33,7 +33,16 @@
       </table>
   </div>
 </div>
-<br />
-<hr />
 <%= link_to 'Modifier', edit_recette_path(@recette), :class=>"btn btn-info"%>
 <%= link_to 'Retour', recettes_path, :class=>"btn"%>
+<br />
+<hr />
+
+
+
+<div id="img_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-body">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+  <%= image_tag @recette.photo.url(:large)%>
+</div>
+</div>
