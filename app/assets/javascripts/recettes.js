@@ -20,21 +20,21 @@ $(document).ready(function(){
 	}
 
 });
- 	function recherchable(fieldTorecherchable) {  
+ 	function recherchable(fieldTorecherchable, element) {  
 
    		$(fieldTorecherchable).typeahead({
-      source: recherche()
+      source: recherche(element)
     	});
    	}
 
 
-  	function recherche() {  
+  	function recherche(element) {  
   		var  liste_nom
 
   	    $.ajax({
 		    type: 'GET',
 		    url: "/recherche_ingredient",
-		    data: 'param1=""',
+		    data: 'element='+element,
 		    dataType: "json",
 		    async: false,
 		    success: function(data){liste_nom= data;}

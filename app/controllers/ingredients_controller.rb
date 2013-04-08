@@ -3,11 +3,16 @@ class IngredientsController < ApplicationController
   # GET /ingredients
   # GET /ingredients.json
   def index
+    @requete = params["recherche"]
+    if @requete.nil?
     @ingredients = Ingredient.all
-
+    else  
+    @requete = params["recherche"]["requete"]  
+    @ingredients = Ingredient.where("nom LIKE ?","%#{@requete}%")
+    end 
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @ingredients }
+      format.html 
+      format.json { render json: @ingredients}
     end
   end
 
@@ -28,7 +33,7 @@ class IngredientsController < ApplicationController
     @ingredient = Ingredient.new
 
     respond_to do |format|
-      format.html { render layout: false}
+      format.html #{ render layout: false}
       format.json { render json: @ingredient }
     end
   end

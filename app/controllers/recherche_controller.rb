@@ -1,11 +1,8 @@
 class RechercheController < ApplicationController
-  before_filter :get_requete
-
-  def get_requete
-    @requete = params[:recherche["requete"]]
-  end
+  
 
   def show
+    @requete = params["recherche"]["requete"]
     @recettes = Recette.where("titre LIKE ?","%#{@requete}%")
     respond_to do |format|
       format.html 
@@ -14,7 +11,12 @@ class RechercheController < ApplicationController
   end
 
   def ingredient
-    @recettes = Ingredient.where("nom LIKE ?","%#{@requete}%")
-    render json: @recettes
+
+    @requete = params[:element]
+    @ingredients = Ingredient.where("nom LIKE ?","%#{@requete}%")
+    respond_to do |format|
+      format.html 
+      format.json { render json: @ingredients}
+    end
   end
 end
