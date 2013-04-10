@@ -1,12 +1,11 @@
 <%= nested_form_for(@recette) do |f| %>
+<h3>Modification de la recette : <%= @recette.titre %></h3>
 <%= link_to 'Retour', recettes_path, :class=>"btn" %>
 <%= link_to 'Voir la recette', @recette, :class=>"btn btn-info"%>
 <%= f.submit "Sauvegarder les changements", :class=>"btn btn-success" %>
 <div class="row">
-  <h3>Modification de la recette : <%= @recette.titre %></h3>
   <span class="span2">
     <%= image_tag @recette.photo.url(:medium) %>
-    <%= f.file_field :photo , :class=> "btn-inverse upload"%> 
   </span>
   <span class="span10">
   	<p>
@@ -16,6 +15,10 @@
     <p>
     	<span class="span2">Description : </span>
         <%= f.text_area :description, :placeholder => "Courte description de la recette", :class => "span8", :rows=>5 %>
+    </p>
+    <p>
+    	<span class="span2">Changer l'image : </span>
+        <%= f.file_field :photo , :class=> "btn-inverse upload"%> 
     </p>
   </span>
 </div>
