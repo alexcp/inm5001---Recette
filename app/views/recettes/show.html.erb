@@ -1,5 +1,6 @@
 <%= link_to 'Retour', recettes_path, :class=>"btn"%>
 <%= link_to 'Modifier', edit_recette_path(@recette), :class=>"btn btn-info"%>
+<%= link_to 'Ajouter aux favoris', @recette, :class=>"btn btn-inverse"%>
 <div class="row">
   <span class="span2">
     <%= image_tag @recette.photo.url(:medium) %>
