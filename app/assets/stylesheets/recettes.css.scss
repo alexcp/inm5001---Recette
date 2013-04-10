@@ -45,3 +45,19 @@ td.option{padding:0 5px;}
 	line-height:1em;
 	color:#000;
 }
+
+textarea { 
+    resize: none; 
+}
+@media (max-width: 767px) {
+	.fix_for_small_screen .span1{
+		width: 40px !important;
+		float: left;
+		margin-right: 10px;
+	}
+	.fix_for_small_screen .span2{
+		width: 110px !important;
+		float: left;
+	}
+
+}
