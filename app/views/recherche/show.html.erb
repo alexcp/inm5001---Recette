@@ -1,10 +1,8 @@
 <h1>Recherche</h1>
 <%= link_to 'Nouvelle Recette', new_recette_path, :class=>"btn btn-info pull-right" %>
-<div class="input-append ">
-  <%= render 'search_bar' %>
+<div class="input-append">
+  <%= render 'recherche/search_bar' %>
 </div>
-
 <hr />
-
 
 <%= render 'recettes/listesRecettes' %>

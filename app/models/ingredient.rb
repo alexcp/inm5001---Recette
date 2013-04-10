@@ -6,7 +6,7 @@ class Ingredient < ActiveRecord::Base
 
   validates :nom, :presence => true, :uniqueness =>true
 
-  UNITE_DE_MESURE = ["gramme(s)","mililitre(s)","litre(s)","cuillière(s) à table","cuillière(s) à thé","tasse(s)", "unité(s)", "douzaine(s)"]
+  UNITE_DE_MESURE = ["gramme(s)","mililitre(s)","litre(s)","c. à table","c. à thé","tasse(s)", "unité(s)", "douzaine(s)"]
 
   def obtenir_unite_de_mesure
     UNITE_DE_MESURE[unite_de_mesure]

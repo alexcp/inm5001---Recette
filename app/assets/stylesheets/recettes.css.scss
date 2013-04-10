@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.row{
+	margin:10px 0;
+}
 
 td.option{padding:0 5px;}
 
@@ -19,3 +22,46 @@ td.option{padding:0 5px;}
 	max-width: 100px;
 }
 
+.liste_recettes .image{
+	display:none;
+}
+.liste_recettes .details{
+	width:100%;
+}
+@media (min-width: 760px) {
+	.liste_recettes .image{
+		display:block;
+	}
+	.liste_recettes .details{
+		width:90%;
+	}
+}
+
+.liste_recettes .titre{
+	font-size:1.5em;
+	line-height:1.5em;
+	font-weigth:bold;
+	color:#000;
+}
+
+.liste_recettes .description{
+	font-size:1em;
+	line-height:1em;
+	color:#000;
+}
+
+textarea { 
+    resize: none; 
+}
+@media (max-width: 767px) {
+	.fix_for_small_screen .span1{
+		width: 40px !important;
+		float: left;
+		margin-right: 10px;
+	}
+	.fix_for_small_screen .span2{
+		width: 110px !important;
+		float: left;
+	}
+
+}
