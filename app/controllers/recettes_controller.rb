@@ -27,7 +27,7 @@ class RecettesController < ApplicationController
     begin
       @recette = current_user.recettes.new
     rescue NoMethodError
-      redirect_to root_path, :flash => {:error => "Vous devez être enregistré."}
+      render "users/new", :flash => {:error => "Vous devez être enregistré."}
       return
     end
 

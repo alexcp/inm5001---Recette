@@ -1,11 +1,12 @@
+#encoding: utf-8
 module ApplicationHelper
   def sign_in_with provider
-    link_to "<i class='icon-#{provider}'></i> Sign In With #{provider.titleize}".html_safe, "/auth/#{provider}", :class => "btn"
+    link_to "<i class='icon-#{provider}'></i> Connecter vous à votre compte #{provider.titleize}".html_safe, "/auth/#{provider}", :class => "btn"
   end
 
   def sign_in_buttons
     content_tag :div do
-      %w{facebook twitter openid}.map {|provider| concat content_tag :p ,sign_in_with(provider) }
+      %w{facebook twitter}.map {|provider| concat content_tag :p ,sign_in_with(provider) }
     end
   end
 
