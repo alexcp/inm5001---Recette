@@ -4,50 +4,7 @@
   Use Font Awesome icons (default)
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
+  =require flat-ui
   */
-.pull-right .dropdown-menu:after {
-    left: auto;
-    right: 13px;
-}
-.pull-right .dropdown-menu {
-    left: auto;
-    right: 0;
-}
 
-.btn.disabled, .btn[disabled]{
-	opacity: 0.50;
-	filter: alpha(opacity=50);
-}
-
-.dropdown-menu li > span,
-.dropdown-menu li > a,
-.dropdown-menu li > label{
-	cursor:default;
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
-
-.dropdown-menu li > form{
-	margin-bottom:5px;
-}
-
-.dropdown-menu li > span,
-.dropdown-menu li > label,
-.dropdown-menu li > form,
-.dropdown-menu li > ul{
-	display:block;
-	padding:3px 20px;
-	clear:both;
-	font-weight:normal;
-	line-height:20px;
-	color:#999;
-	white-space:nowrap;
-}
-
-.dropdown-menu li > ul > li > a:hover{
-	background:none;
-}
+a{text-decoration:none;}
