@@ -13,6 +13,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-openid'
 gem 'paperclip', '~> 3.4.1'
 gem 'acts_as_votable', '~> 0.5.0'
+gem 'ransack'
 
 group :test, :development do
   gem 'rspec-rails'
