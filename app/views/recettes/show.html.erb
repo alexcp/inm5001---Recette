@@ -3,7 +3,6 @@
 <%= link_to 'Ajouter aux favoris', @recette, :class=>"btn btn-inverse"%>
 <div class="row">
   <span class="span2">
-    <%= image_tag @recette.photo.url(:medium) %>
     <a href="/vote_up/<%= @recette.id %>" class="btn <%= "btn-info" if current_user.voted_up_on? @recette %>">
     <i class="icon-thumbs-up"> </i><%= @recette.likes.count %>
   </a>
