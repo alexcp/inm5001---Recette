@@ -16,16 +16,16 @@
     <%= @recette.description %>
   </span>
 </div>
-
 <div class="row">
   <div class="span8">
-
+<<<<<<< HEAD
     <br>
     <a href="#img_modal" data-toggle="modal"><%= image_tag @recette.photo.url(:medium), :class => "img_preview" %></a>
     <h3>Description</h3>
     <hr />
     <%= @recette.description %>
-
+=======
+>>>>>>> a8f4f2e6f72cdfa307f7e10938d84634b263c1f3
     <h3>Prépararion</h3>
     <%= @recette.preparation %>
   </div>
@@ -44,8 +44,9 @@
     <% end %>
       </table>
   </div>
+<<<<<<< HEAD
 </div>
-
+<<<<<<< HEAD
 <%= link_to 'Modifier', edit_recette_path(@recette), :class=>"btn btn-info"%>
 <%= link_to 'Retour', recettes_path, :class=>"btn"%>
 <br />
@@ -59,4 +60,8 @@
   <%= image_tag @recette.photo.url(:large)%>
 </div>
 </div>
-
+=======
+>>>>>>> a8f4f2e6f72cdfa307f7e10938d84634b263c1f3
+=======
+</div>
+>>>>>>> new_branch_name
