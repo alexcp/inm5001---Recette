@@ -1,0 +1,21 @@
+<table class="table table-stripped">
+  <tr>
+    <th></th>
+    <th>Image</th>
+    <th>Titre</th>
+    <th>Description</th>
+    <th></th>
+  </tr>
+<% @recettes.each do |recette| %>
+  <tr>
+    <td>
+      <i class="icon-thumbs-up"> </i><%= recette.likes.count %>
+      <i class="icon-thumbs-down"> </i><%= recette.dislikes.count %>
+    </td>
+    <td><%= image_tag recette.photo.url(:small), :class => "img_preview thumbnail" %></td>
+    <td><b><%= recette.titre %></b></td>
+    <td><%= recette.description %></td>
+    <td><%= link_to 'Voir', recette , :class=>"btn btn-inverse" %></td>
+  </tr>
+<% end %>
+</table>
