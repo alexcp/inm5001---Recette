@@ -83,4 +83,11 @@ class RecettesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  def addComment
+    @article = @recette.find(params[:id])
+    @user_who_commented = @current_user
+    @comment = Comment.build_from( @recette, @user_who_commented.id, "command" )
+  end   
 end

@@ -1,5 +1,6 @@
 class Recette < ActiveRecord::Base
   acts_as_votable
+  acts_as_commentable
   attr_accessible :titre, :description, :preparation, :ingredient_recettes_attributes, :temperature_cuisson, :photo
 
   has_attached_file :photo, :default_url => "defaultRecipe.jpg",  :styles => {
@@ -17,6 +18,9 @@ class Recette < ActiveRecord::Base
   validates_presence_of :titre, :preparation, :user_id
   accepts_nested_attributes_for :ingredient_recettes, :allow_destroy => true
 
+  def findComment
+    @all_comments = this.comment_threads
+  end
 
   def self.search(search, recherche)
     if search
