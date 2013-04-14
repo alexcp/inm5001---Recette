@@ -18,28 +18,6 @@ class Recette < ActiveRecord::Base
   validates_presence_of :titre, :preparation, :user_id
   accepts_nested_attributes_for :ingredient_recettes, :allow_destroy => true
 
-  def findComment
-    @all_comments = this.comment_threads
-  end
+  
 
-  def self.search(search, recherche)
-    if search
-      if recherche==:titre 
-        self.searchByIngredient(search)
-      else
-        self.searchByTitle(search)
-      end
-    else
-      find(:all)
-    end
-  end
-
-  def self.searchByTitle(search)
-    p joins(:ingredient_recettes).find(:all).size
-    if search
-      find(:all)
-    else
-      find(:all)
-    end
-  end
 end

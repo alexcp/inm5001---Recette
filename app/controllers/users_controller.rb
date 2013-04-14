@@ -23,4 +23,13 @@ class UsersController < ApplicationController
     recette.disliked_by current_user if current_user.real_user?
     redirect_to recette
   end
+
+  def comment
+    recette= Recette.find params[:recette_id] 
+    id = current_user.id if current_user.real_user?
+    comment = Comment.build_from( recette, id, params[:body] )
+    comment.save
+    redirect_to recette
+  end
+
 end

@@ -1,6 +1,7 @@
 <%= link_to 'Retour', recettes_path, :class=>"btn"%>
 <%= link_to 'Modifier', edit_recette_path(@recette), :class=>"btn btn-info"%>
 <%= link_to 'Ajouter aux favoris', @recette, :class=>"btn btn-inverse"%>
+
 <div class="row">
   <span class="span2">
     <a href="/vote_up/<%= @recette.id %>" class="btn <%= "btn-info" if current_user.voted_up_on? @recette %>">
@@ -44,7 +45,24 @@
       </table>
   </div>
 </div>
-
+<h3>Commentaires</h3>
+<form action="/comment/<%= @recette.id %>" >
+  <div><%=text_area_tag 'body', nil, :size => "10x2", :class =>"resizable" %></div>
+  <div><%=submit_tag "Commenter", :class=>"btn btn-info" %></div>
+</form>
+<table class="table table-striped">
+  <% @recette.root_comments.find(:all, order: "created_at DESC").each do |commentaire| %>
+     <tr>
+        <td>
+         <span class="user_comment"> <%= User.find(commentaire.user_id).name %> </span>
+        </td>
+        <td>
+          <%= commentaire.body %>
+      </tr>
+  <% end %>
+</table>
+<br/>
+<br/>
 <%= link_to 'Modifier', edit_recette_path(@recette), :class=>"btn btn-info"%>
 <%= link_to 'Retour', recettes_path, :class=>"btn"%>
 <br />
