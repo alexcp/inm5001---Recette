@@ -32,18 +32,25 @@
     </p>
   </div>
   <div class="span6">
-    <h3>Ingrédients <%= f.link_to_add '<i class="icon-plus" > </i> '.html_safe, :ingredient_recettes, :class=>"btn btn-info espace" %></h3>
-      <table class="table table-striped">
-    <%= f.fields_for :ingredient_recettes do |ingredient| -%>
-      <tr>
+    <h3>Ingrédients 
+
+      <%= f.link_to_add '<i class="icon-plus" > </i> '.html_safe, :ingredient_recettes, :target_id => "#ingredients", :class=>"btn btn-info espace insert_in_table" %>
+    </h3>
+      <table id="ingredients" class="table table-striped">
+        <tbody>
+    <%= f.fields_for :ingredient_recettes, :wrapper => false do |ingredient| -%>
+      <tr class="fields">
         <td>
+          <%= ingredient.hidden_field :id %>
           <%= ingredient.text_field :nom, :class => 'autocomplete', :placeholder => 'Nom', :autocomplete => "off", :onkeydown=> 'recherchable(this,this.value)', :class => 'span3' %>
         </td>
         <td class="fix_for_small_screen">
           <%= ingredient.text_field :quantite, :class => 'span1' %>
           <%= ingredient.select :unite_de_mesure, Ingredient::UNITE_DE_MESURE, {}, :class => "span2"  %>
+        </td>
       </tr>
     <% end %>
+      </tbody>
       </table>
   </div>
 </div>

@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/ryanb/nested_form.git
+  revision: a25eebe8205e4e63899873b716535def6c1f5a9d
+  specs:
+    nested_form (0.3.2)
+
+GIT
   remote: https://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: 26e38bf06cd6cbc8d55631740deca826965abb33
   specs:
@@ -91,7 +97,6 @@ GEM
     mime-types (1.19)
     multi_json (1.5.0)
     multipart-post (1.1.5)
-    nested_form (0.2.3)
     oauth (0.4.7)
     oauth2 (0.8.0)
       faraday (~> 0.8)
@@ -208,7 +213,7 @@ DEPENDENCIES
   cucumber
   factory_girl_rails
   jquery-rails
-  nested_form (~> 0.2.3)
+  nested_form!
   omniauth-facebook
   omniauth-openid
   omniauth-twitter

@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
-gem 'nested_form', '~> 0.2.3'
+gem 'nested_form', :github => 'ryanb/nested_form' #'~> 0.2.3' previous used, problem with some features
 
 gem 'sqlite3'
-gem 'nested_form', '~> 0.2.3'
+#gem 'nested_form', '~> 0.2.3' Wtf it was added twice
 gem 'jquery-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'thin'

@@ -4,6 +4,7 @@
 
 <div class="row">
   <span class="span2">
+    <a href="#img_modal" data-toggle="modal"><%= image_tag @recette.photo.url(:medium), :class => "img_preview" %></a>
     <a href="/vote_up/<%= @recette.id %>" class="btn <%= "btn-info" if current_user.voted_up_on? @recette %>">
     <i class="icon-thumbs-up"> </i><%= @recette.likes.count %>
   </a>
@@ -16,22 +17,14 @@
     <%= @recette.description %>
   </span>
 </div>
-
+<hr />
 <div class="row">
   <div class="span8">
-
-    <br>
-    <a href="#img_modal" data-toggle="modal"><%= image_tag @recette.photo.url(:medium), :class => "img_preview" %></a>
-    <h3>Description</h3>
-    <hr />
-    <%= @recette.description %>
-
     <h3>Prépararion</h3>
     <%= @recette.preparation %>
   </div>
   <div class="span4">
     <h3>Ingrédients</h3>
-    <hr />
       <table class="table table-striped">
     <% @recette.ingredient_recettes.each do |ingredient| %>
       <tr>
@@ -45,30 +38,6 @@
       </table>
   </div>
 </div>
-<h3>Commentaires</h3>
-<form action="/comment/<%= @recette.id %>" >
-  <div><%=text_area_tag 'body', nil, :size => "10x2", :class =>"resizable" %></div>
-  <div><%=submit_tag "Commenter", :class=>"btn btn-info" %></div>
-</form>
-<table class="table table-striped">
-  <% @recette.root_comments.find(:all, order: "created_at DESC").each do |commentaire| %>
-     <tr>
-        <td>
-         <span class="user_comment"> <%= User.find(commentaire.user_id).name %> </span>
-        </td>
-        <td>
-          <%= commentaire.body %>
-      </tr>
-  <% end %>
-</table>
-<br/>
-<br/>
-<%= link_to 'Modifier', edit_recette_path(@recette), :class=>"btn btn-info"%>
-<%= link_to 'Retour', recettes_path, :class=>"btn"%>
-<br />
-<hr />
-
-
 
 <div id="img_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-body">

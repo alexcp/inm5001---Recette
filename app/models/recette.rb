@@ -15,6 +15,7 @@ class Recette < ActiveRecord::Base
 
   belongs_to :user 
   has_many :ingredient_recettes 
+  has_many :comments 
   validates_presence_of :titre, :preparation, :user_id
   accepts_nested_attributes_for :ingredient_recettes, :allow_destroy => true
 

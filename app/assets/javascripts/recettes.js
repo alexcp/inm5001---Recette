@@ -8,7 +8,6 @@ $(document).ready(function(){
 		readURL(this);
 	});
 
-
 	function readURL(input) {
 		if (input.files && input.files[0]) {
 			var reader = new FileReader();
@@ -45,3 +44,13 @@ $(document).ready(function(){
 				});	
 
   	};
+
+jQuery(function ($) {
+    window.NestedFormEvents.prototype.insertFields = function(content, assoc, link) {
+      	if($(link).attr('data-target')!=""){
+	      	var me = $(link);
+	        var $tr = $(me.attr('target_id')).find('tbody').append(content);
+	        return $tr;
+     	}
+    };
+  });
