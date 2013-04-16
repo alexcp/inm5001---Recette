@@ -16,3 +16,12 @@ input{
 	padding-top: 3px !important;
 	padding-bottom: 3px !important;
 }
+
+.field_with_errors,
+.field_corrected{ 
+	display: inline-block;
+}
+
+.field_with_errors input{
+	border:2px solid #ec7063!important;
+}

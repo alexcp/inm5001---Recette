@@ -2,8 +2,6 @@
 // All this logic will automatically be available in application.js.
 $(document).ready(function(){
 
-	
-
 	$('.upload').change(function() {
 		readURL(this);
 	});
@@ -17,6 +15,13 @@ $(document).ready(function(){
 			reader.readAsDataURL(input.files[0]);
 		}
 	}
+
+	$("div.field_with_errors input").bind("focus.with_error",function(){
+		var me = $(this),
+			parent = me.parent();
+		parent.removeClass("field_with_errors").addClass("field_corrected");
+		me.unbind("focus.with_error");
+	});
 
 });
  	function recherchable(fieldTorecherchable, element) {  

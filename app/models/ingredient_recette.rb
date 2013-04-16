@@ -44,6 +44,10 @@ class IngredientRecette < ActiveRecord::Base
   private
 
   def trouve_ou_cree_ingredient
-    Ingredient.find_by_nom(nom) || Ingredient.create!( nom: nom )
+    if nom!=""
+      Ingredient.find_by_nom(nom) || Ingredient.create!( nom: nom )
+    else
+      
+    end
   end
 end
