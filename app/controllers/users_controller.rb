@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def profile
     @user = current_user
+    @recettes = @user.find_liked_items
     render "show"
   end
 
