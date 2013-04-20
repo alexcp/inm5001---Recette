@@ -25,11 +25,23 @@
 
 <div class="row">
   <div class="span6">
-    <h3>Les étapes de préparations</h3>
-    <p>
-      <span class="span2">Préparation : </span>
-        <%= f.text_area :preparation, :placeholder => "Les étapes de votre recette",:class => 'span4', :rows=>10 %>
-    </p>
+
+    <h3>Les étapes de préparations 
+
+      <%= f.link_to_add '<i class="icon-plus" > </i> '.html_safe, :etapes, :target_id => "#etapes", :class=>"btn btn-info espace insert_in_table" %>
+    </h3>
+      <table id="etapes" class="table table-striped">
+        <tbody>
+    <%= f.fields_for :etapes, :wrapper => false do |etape| -%>
+      <tr class="fields">
+        <td>
+          <%= etape.hidden_field :id %>
+          <%= etape.text_area :description, :placeholder => 'Description de l\'étape', :class => 'span6', :rows=>5 %>
+        </td>
+      </tr>
+    <% end %>
+      </tbody>
+      </table>
   </div>
   <div class="span6">
     <h3>Ingrédients 

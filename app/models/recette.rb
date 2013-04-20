@@ -1,7 +1,7 @@
 class Recette < ActiveRecord::Base
   acts_as_votable
   acts_as_commentable
-  attr_accessible :titre, :description, :preparation, :ingredient_recettes_attributes, :temperature_cuisson, :photo
+  attr_accessible :titre, :description, :preparation, :ingredient_recettes_attributes, :etapes_attributes, :temperature_cuisson, :photo
 
   has_attached_file :photo, :default_url => "defaultRecipe.jpg",  :styles => {
     :thumb=> "100x100#",
@@ -15,8 +15,10 @@ class Recette < ActiveRecord::Base
 
   belongs_to :user 
   has_many :ingredient_recettes 
+  has_many :etapes
   has_many :comments 
   validates_presence_of :titre, :preparation, :user_id
   accepts_nested_attributes_for :ingredient_recettes, :allow_destroy => true
+  accepts_nested_attributes_for :etapes, :allow_destroy => true
 
 end
