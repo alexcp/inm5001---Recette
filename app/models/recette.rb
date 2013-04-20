@@ -19,4 +19,8 @@ class Recette < ActiveRecord::Base
   validates_presence_of :titre, :preparation, :user_id
   accepts_nested_attributes_for :ingredient_recettes, :allow_destroy => true
 
+  def if_recette_belong_to(id)
+    self.user_id == id
+  end
+
 end

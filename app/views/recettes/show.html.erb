@@ -1,5 +1,7 @@
 <%= link_to 'Retour', recettes_path, :class=>"btn"%>
-<%= link_to 'Modifier', edit_recette_path(@recette), :class=>"btn btn-info"%>
+<% if @recette.if_recette_belong_to(current_user.id) %>
+    <%= link_to 'Modifier', edit_recette_path(@recette), :class=>"btn btn-info"%>
+<% end %>
 <a href="/vote_up/<%= @recette.id %>" class="btn <%= "btn-info" if current_user.voted_up_on? @recette %>">
   <i class="icon-thumbs-up"> </i><%= @recette.likes.count %>
 </a>

@@ -32,4 +32,13 @@ module ApplicationHelper
       link_to "Connection", "#login_modal", data:{toggle:'modal'}
     end
   end
+
+  def logout
+    if current_user.real_user?
+      link_to "Deconnexion", "/signout"
+    else
+
+    end
+  end
+
 end
