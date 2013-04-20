@@ -14,10 +14,17 @@ class Recette < ActiveRecord::Base
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png', 'image/jpg']
 
   belongs_to :user 
+
   has_many :ingredient_recettes 
+  validates :etapes, :presence => {:message => 'Il doit y avoir au moins 1 ingrédient dans votre recette.'}
+
   has_many :etapes
+  validates :etapes, :presence => {:message => 'Il doit y avoir au moins 1 étape dans votre recette.'}
+
   has_many :comments 
-  validates_presence_of :titre, :preparation, :user_id
+  validates_presence_of :titre, :user_id
+
+  #validates_existence_of :etapes, :ingredient_recettes
   accepts_nested_attributes_for :ingredient_recettes, :allow_destroy => true
   accepts_nested_attributes_for :etapes, :allow_destroy => true
 

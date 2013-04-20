@@ -15,6 +15,7 @@ gem 'paperclip', '~> 3.4.1'
 gem 'acts_as_votable', '~> 0.5.0'
 gem 'ransack'
 gem 'acts_as_commentable_with_threading'
+gem "validates_existence", ">= 0.4"
 
 group :test, :development do
   gem 'rspec-rails'
