@@ -9,23 +9,22 @@ class Recette < ActiveRecord::Base
     :medium => "200x200>",
     :large =>   "400x400>" }
 
-  #validates_associated :ingredient_recettes
   validates_attachment_size :photo, :less_than => 5.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png', 'image/jpg']
 
   belongs_to :user 
-
+  
+  validates_presence_of :titre, :user_id
+  
   has_many :ingredient_recettes 
-  validates :etapes, :presence => {:message => 'Il doit y avoir au moins 1 ingrédient dans votre recette.'}
+  validates :ingredient_recettes, :presence => true
+  accepts_nested_attributes_for :ingredient_recettes, :allow_destroy => true
 
   has_many :etapes
-  validates :etapes, :presence => {:message => 'Il doit y avoir au moins 1 étape dans votre recette.'}
+  validates :etapes, :presence => true
+  accepts_nested_attributes_for :etapes, :allow_destroy => true
 
   has_many :comments 
-  validates_presence_of :titre, :user_id
 
-  #validates_existence_of :etapes, :ingredient_recettes
-  accepts_nested_attributes_for :ingredient_recettes, :allow_destroy => true
-  accepts_nested_attributes_for :etapes, :allow_destroy => true
 
 end
