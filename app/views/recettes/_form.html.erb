@@ -54,11 +54,12 @@
       <tr class="fields">
         <td>
           <%= ingredient.hidden_field :id %>
-          <%= ingredient.text_field :nom, :class => 'autocomplete', :placeholder => 'Nom', :autocomplete => "off", :onkeydown=> 'recherchable(this,this.value)', :class => 'span3' %>
+          <%= ingredient.text_field :nom, :placeholder => 'Nom', :autocomplete => "off", :onkeydown=> 'recherchable(this,this.value)', :class => 'autocomplete' %>
         </td>
         <td class="fix_for_small_screen">
           <%= ingredient.text_field :quantite, :class => 'span1' %>
           <%= ingredient.select :unite_de_mesure, Ingredient::UNITE_DE_MESURE, {}, :class => "span2"  %>
+          <%= ingredient.link_to_remove '<i class="icon-trash" > </i> '.html_safe, :class=>"btn btn-danger" %>
         </td>
       </tr>
     <% end %>
