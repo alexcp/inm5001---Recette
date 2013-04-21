@@ -1,17 +1,4 @@
 <h1><%= @user.name %></h1>
 
 <h3>Favoris</h3>
-<table class="liste_recettes table table-striped">
-  <tbody>
-	<% @user.find_liked_items.each do |recette| %>
-    <tr>
-      <td class="image"><%= image_tag recette.photo.url(:small) %></td>
-      <td class="details">
-        <%= link_to recette.titre, recette, :class => "titre" %>
-        <br />
-        <%= link_to recette.description, recette, :class => "description" %>
-      </td>
-    </li>
-    <% end %>
-  </tbody>
-</table>
+<%= render :partial => 'recettes/liste_recettes', :locals => {:recettes => @user.find_liked_items} %>
