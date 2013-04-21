@@ -17,11 +17,11 @@ class Recette < ActiveRecord::Base
   validates_presence_of :titre, :user_id
   
   has_many :ingredient_recettes 
-  validates :ingredient_recettes, :presence => true
+  validates :ingredient_recettes, :presence => true#, :message => "Oups, une recettes sans ingredient..."
   accepts_nested_attributes_for :ingredient_recettes, :allow_destroy => true
 
   has_many :etapes
-  validates :etapes, :presence => true
+  validates :etapes, :presence => true#, :message => "Oups, une recettes sans etape..."
   accepts_nested_attributes_for :etapes, :allow_destroy => true
 
   has_many :comments 
@@ -33,4 +33,21 @@ class Recette < ActiveRecord::Base
   def getUser()
     User.find(self.user_id).name
   end
+
+  def self.cloner(id)
+    recetteCopieur = Recette.find(id)
+    recetteCopier = recetteCopieur.dup
+    recetteCopier.photo=nil
+     p  recetteCopieur.ingredient_recettes
+    recetteCopieur.ingredient_recettes.each do |ingredientACopier|
+      recetteCopier.ingredient_recettes.build  nom:ingredientACopier.nom, quantite:ingredientACopier.quantite, unite_de_mesure:ingredientACopier.unite_de_mesure
+    end
+
+    recetteCopieur.etapes.each do |etapeACopier|
+      recetteCopier.etapes.build  description:etapeACopier.description
+    end
+
+    return recetteCopier
+  end 
+
 end

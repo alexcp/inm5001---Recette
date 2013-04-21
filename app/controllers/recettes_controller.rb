@@ -25,12 +25,17 @@ class RecettesController < ApplicationController
   # GET /recettes/new
   # GET /recettes/new.json
   def new
-    begin
+    p params
+    #begin
+      if params[:recette_id].nil?
       @recette = current_user.recettes.new
-    rescue NoMethodError
-      render "users/new", :flash => {:error => "Vous devez être enregistré."}
-      return
-    end
+      else
+      @recette = Recette.cloner(params[:recette_id])
+      end
+    #rescue NoMethodError
+    #  render "users/new", :flash => {:error => "Vous devez être enregistré."}
+    #  return
+   # end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -92,7 +97,11 @@ class RecettesController < ApplicationController
     end
   end
 
-
-   
-
+  def cloner 
+    @recette = Recette.find(params[:recette_id]).dup
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: "/recettes" }
+    end
+  end  
 end

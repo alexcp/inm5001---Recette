@@ -8,7 +8,7 @@ Recettes::Application.routes.draw do
   get "vote_up/:recette_id", to: "users#vote_up"
   get "vote_down/:recette_id", to: "users#vote_down"
   get "comment/:recette_id", to: "users#comment"
-  
+  get "recettes/new/:recette_id", to: "recettes#new"
  
   resources :ingredients
   resources :recettes
