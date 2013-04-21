@@ -5,4 +5,4 @@
 </div>
 <hr />
 
-<%= render 'liste_recettes' %>
+<%= render :partial => 'liste_recettes', :locals => {:recettes => @recettes} %>
