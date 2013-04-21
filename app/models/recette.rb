@@ -30,4 +30,7 @@ class Recette < ActiveRecord::Base
     self.user_id == id
   end
 
+  def getUser()
+    User.find(self.user_id).name
+  end
 end

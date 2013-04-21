@@ -14,13 +14,13 @@
     <%= image_tag @recette.photo.url(:medium), :class => "img_preview" %>
   </span>
   <span class="span10">
-    <h1><%= @recette.titre.titleize %></h1>
+    <h1><span><%= @recette.titre.titleize %></span> de <span><%= @recette.getUser() %></span></h1>
     <%= @recette.description %>
   </span>
 </div>
 <div class="row">
   <div class="span8">
-    <h3>Prépararion</h3>
+    <h3>Préparation</h3>
     <table class="table table-striped">
     <% @recette.etapes.each do |etape| %>
       <tr>
