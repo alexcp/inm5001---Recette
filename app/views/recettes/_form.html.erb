@@ -36,7 +36,8 @@
       <tr class="fields">
         <td>
           <%= etape.hidden_field :id %>
-          <%= etape.text_area :description, :placeholder => 'Description de l\'étape', :class => 'span6', :rows=>5 %>
+          <%= etape.text_area :description, :placeholder => 'Description de l\'étape', :class => 'etape', :rows=>1 ,  onkeyup:"autoSize(this);" %>
+          <%= etape.link_to_remove '<i class="icon-trash" > </i> '.html_safe, :class=>"btn btn-danger"%>
         </td>
       </tr>
     <% end %>

@@ -50,6 +50,23 @@ $(document).ready(function(){
 
   	};
 
+
+function autoSize(textarea)
+{
+  var lines = textarea.value.split('\n');
+  var width = textarea.cols;
+  var height = 1;
+  for (var i = 0; i < lines.length; i++) {
+    var linelength = lines[i].length;
+    if (linelength >= width) {
+      height += Math.ceil(linelength / width);
+    }
+  }
+  height += lines.length;
+  textarea.rows = height-1;
+}
+
+
 jQuery(function ($) {
     window.NestedFormEvents.prototype.insertFields = function(content, assoc, link) {
       	if($(link).attr('data-target')!=""){
@@ -59,3 +76,4 @@ jQuery(function ($) {
      	}
     };
   });
+
