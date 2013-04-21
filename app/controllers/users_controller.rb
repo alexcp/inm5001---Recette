@@ -32,5 +32,4 @@ class UsersController < ApplicationController
     comment.save
     redirect_to recette
   end
-
 end

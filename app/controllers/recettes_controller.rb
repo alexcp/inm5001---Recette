@@ -40,7 +40,14 @@ class RecettesController < ApplicationController
 
   # GET /recettes/1/edit
   def edit
-    @recette = current_user.recettes.find(params[:id])
+    if current_user.recettes.nil?
+     redirect_to root_url, :flash => {:error => "Oups, mauvais chemin"}
+    else
+      @recette = current_user.recettes.find(params[:id])
+      if @recette.nil
+      redirect_to root_url, :flash => {:error => "Oups, mauvais chemin"}
+      end
+    end  
   end
 
   # POST /recettes

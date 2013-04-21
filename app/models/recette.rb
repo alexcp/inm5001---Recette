@@ -26,5 +26,8 @@ class Recette < ActiveRecord::Base
 
   has_many :comments 
 
+  def if_recette_belong_to(id)
+    self.user_id == id
+  end
 
 end
