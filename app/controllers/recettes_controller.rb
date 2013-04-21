@@ -44,7 +44,7 @@ class RecettesController < ApplicationController
      redirect_to root_url, :flash => {:error => "Oups, mauvais chemin"}
     else
       @recette = current_user.recettes.find(params[:id])
-      if @recette.nil
+      if @recette.nil?
       redirect_to root_url, :flash => {:error => "Oups, mauvais chemin"}
       end
     end  
