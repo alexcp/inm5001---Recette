@@ -51,8 +51,9 @@ $(document).ready(function(){
   	};
 
 
-function autoSize(textarea)
+function autoSize(textarea, e)
 {
+	
   var lines = textarea.value.split('\n');
   var width = textarea.cols;
   var height = 1;
@@ -63,7 +64,8 @@ function autoSize(textarea)
     }
   }
   height += lines.length;
-  textarea.rows = height-1;
+  if (height==2) height--
+  textarea.rows = height;
 }
 
 

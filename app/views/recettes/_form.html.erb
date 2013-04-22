@@ -25,7 +25,7 @@
 
 <div class="row">
   <div class="span6">
-
+    <span class="alert"> <%= @recette.errors.messages[:etapes][0] if not @recette.errors.messages[:etapes].nil? %> </span>
     <h3>Les étapes de préparations 
 
       <%= f.link_to_add '<i class="icon-plus" > </i> '.html_safe, :etapes, :target_id => "#etapes", :class=>"btn btn-info espace insert_in_table" %>
@@ -36,7 +36,7 @@
       <tr class="fields">
         <td>
           <%= etape.hidden_field :id %>
-          <%= etape.text_area :description, :placeholder => 'Description de l\'étape', :class => 'etape', :rows=>1 ,  onkeyup:"autoSize(this);" %>
+          <%= etape.text_area :description, :placeholder => 'Description de l\'étape', :class => 'etape', :rows=>1 ,  onkeyup:"autoSize(this, event);" %>
           <%= etape.link_to_remove '<i class="icon-trash" > </i> '.html_safe, :class=>"btn btn-danger"%>
         </td>
       </tr>
@@ -45,6 +45,7 @@
       </table>
   </div>
   <div class="span6">
+    <span class="alert"> <%= @recette.errors.messages[:ingredient_recettes][0] if not @recette.errors.messages[:ingredient_recettes].nil? %> </span>
     <h3>Ingrédients 
 
       <%= f.link_to_add '<i class="icon-plus" > </i> '.html_safe, :ingredient_recettes, :target_id => "#ingredients", :class=>"btn btn-info espace insert_in_table" %>
