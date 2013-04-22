@@ -26,16 +26,16 @@ class RecettesController < ApplicationController
   # GET /recettes/new.json
   def new
     p params
-    #begin
+    begin
       if params[:recette_id].nil?
       @recette = current_user.recettes.new
       else
       @recette = Recette.cloner(params[:recette_id])
       end
-    #rescue NoMethodError
-    #  render "users/new", :flash => {:error => "Vous devez être enregistré."}
-    #  return
-   # end
+    rescue NoMethodError
+      render "users/new", :flash => {:error => "Vous devez être enregistré."}
+      return
+    end
 
     respond_to do |format|
       format.html # new.html.erb
