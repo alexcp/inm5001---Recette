@@ -41,4 +41,17 @@ module ApplicationHelper
     end
   end
 
+  def admin
+    if current_user.admin
+    link_to "<i class='icon-edit' id='edit'></i>".html_safe, "/ingredients"
+    end 
+  end   
+
+  def tooltip(content, options = {}, html_options = {}, *parameters_for_method_reference) 
+    html_options[:title] = options[:tooltip] 
+    html_options[:class] = html_options[:class] || 'tooltip' 
+    content_tag("span", content, html_options) 
+  end
+
+
 end

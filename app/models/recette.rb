@@ -49,4 +49,7 @@ class Recette < ActiveRecord::Base
     return recetteCopier
   end 
 
+  def afficherError(error)
+    self.errors.messages[:etapes][0] if not @recette.errors.messages[:etapes].nil? 
+  end  
 end

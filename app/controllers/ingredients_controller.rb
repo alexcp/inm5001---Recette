@@ -51,7 +51,7 @@ class IngredientsController < ApplicationController
 
     respond_to do |format|
       if @ingredient.save
-        format.html { redirect_to @ingredient, :flash => {:notice => "La ingredient à été enregistré."} }
+        format.html { redirect_to ingredients_url, :flash => {:notice => "La ingredient à été enregistré."} }
         format.json { render json: @ingredient, status: :created, location: @ingredient }
       else
         format.html { render action: "new" }
@@ -67,7 +67,7 @@ class IngredientsController < ApplicationController
 
     respond_to do |format|
       if @ingredient.update_attributes(params[:ingredient])
-        format.html { redirect_to @ingredient, :flash => {:notice => "La ingredient à été enregistré."} }
+        format.html { redirect_to ingredients_url, :flash => {:notice => "La ingredient à été enregistré."} }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

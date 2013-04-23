@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130420214142) do
+ActiveRecord::Schema.define(:version => 20130423002711) do
 
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id",   :default => 0
@@ -50,21 +50,28 @@ ActiveRecord::Schema.define(:version => 20130420214142) do
 
   create_table "ingredients", :force => true do |t|
     t.string   "nom"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.decimal  "prix"
     t.integer  "proteine"
     t.integer  "glucide"
     t.integer  "gras"
+    t.boolean  "admin"
+    t.boolean  "special"
+    t.decimal  "prix_special"
+    t.string   "epicerie"
   end
 
   create_table "recettes", :force => true do |t|
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.integer  "user_id"
     t.string   "titre"
     t.string   "description"
     t.text     "preparation"
+    t.text     "temps_preparation"
+    t.text     "temps_cuisson"
+    t.text     "temperature_cuisson"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
@@ -77,8 +84,9 @@ ActiveRecord::Schema.define(:version => 20130420214142) do
     t.string   "name"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+    t.boolean  "admin",            :default => false
   end
 
   create_table "votes", :force => true do |t|

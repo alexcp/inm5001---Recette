@@ -3,7 +3,7 @@
     <%= link_to 'Modifier', edit_recette_path(@recette), :class=>"btn btn-info"%>
 <%elsif current_user.id.present? %>    
     <a href="new/<%= @recette.id %>" class="btn <%= "btn-info" %>">
-      <span>Cloner</span>
+      <span>Copier/Editer</span>
     </a>
 <% end %>
 <a href="/vote_up/<%= @recette.id %>" class="btn <%= "btn-info" if current_user.voted_up_on? @recette %>">
@@ -14,7 +14,7 @@
 </a>
 
 <div class="row">
-  <h1><span><%= @recette.titre.titleize %></span> de <span><%= @recette.getUser() %></span></h1>
+  <span><h1> &nbsp;&nbsp;&nbsp; <%= @recette.titre.titleize %></span> de <span><%= @recette.getUser() %></h1>
   <span class="span2">
     <%= image_tag @recette.photo.url(:medium), :class => "img_preview" %>
   </span>
@@ -45,6 +45,11 @@
         </td>
         <td>
           <%= ingredient.quantite %> x <%= ingredient.unite_de_mesure %>
+        </td>
+         <td>
+         <% if ingredient.admin? %>
+         <%=  link_to '<i class="icon-info-sign"></i>'.html_safe, '/link', title: ingredient.tooltip(), rel: 'tooltip' %>
+         <% end %>
         </td>
       </tr>
     <% end %>

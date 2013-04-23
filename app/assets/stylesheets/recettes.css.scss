@@ -5,6 +5,19 @@
 	background-color:blue;
 }
 
+.tooltip{
+   position: absolute;
+   top: 0;
+   left: 0;
+   z-index: 3;
+   display: none;
+}
+            
+
+  .mytooltip { cursor: help; color: green; border-bottom: 1px dotted green }
+
+
+
 .etape{
 	overflow:hidden;
 	width:470px;

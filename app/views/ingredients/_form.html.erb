@@ -14,6 +14,8 @@
   <div class="field">
     <%= f.label :nom %>
     <%= f.text_field :nom %>
+    <%= f.label "Ingrédient Administrateur" %>
+    <%= f.check_box :admin %>
   </div>
 
   <div class="field">
@@ -34,6 +36,26 @@
   <div class="field">
     <%= f.label :gras %>
     <%= f.text_field :gras %>
+  </div>
+
+
+  <div>
+   <h1> Ingredient en rabais </h1>
+  </div>
+
+  <div class="field">
+    <%= f.label "En rabais..." %>
+    <%= f.check_box :special %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Prix du rabais" %>
+    <%= f.text_field :prix_special %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Épicier" %>
+    <%= f.select :epicerie, Ingredient::EPICIER, {}, :class => "span2"  %>
   </div>
 
   <br />
