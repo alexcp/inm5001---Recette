@@ -33,5 +33,7 @@ $(document).ready(function() {
 		}
 	})
 
-
+$("#switch").onclick(function(){
+	$("#vos_recettes").hide();
+})
 });
