@@ -1,13 +1,20 @@
 <h1>Liste des ingrédients</h1>
 
 
-
-<%= link_to 'Nouveau ingredient', new_ingredient_path, :class=>"btn btn-info pull-right" %>
+<div>
+<%= link_to 'Nouveau ingredient', new_ingredient_path, :class=>"btn" %>
+</div>
+<div>
+</br>
 <div class="input-append">
 <%= form_for :recherche, url: "ingredients", method: "get" do |f| %>
-  <%= f.search_field "requete", class: "", placeholder: "Trouvez une recette" %>
-  <%= f.submit class: "btn btn-info", type: "submit", value: "Rechercher" %>
+
+<span class="input-append">
+  <%= f.submit class: "btn", type: "submit", value: "Rechercher" %>
+  <%= f.search_field "requete", class: "", placeholder: "Trouvez un ingrédient" %>
+</span> 
 <% end %>
+
 </div>
 <table class="table table-striped" id="table1">
   <thead>

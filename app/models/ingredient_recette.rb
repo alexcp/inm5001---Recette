@@ -44,8 +44,17 @@ class IngredientRecette < ActiveRecord::Base
   def tooltip()
     Ingredient.find_by_nom(nom).tooltip();
   end  
- def admin?()
+
+  def admin?()
     Ingredient.find_by_nom(nom).admin;
+  end  
+
+  def special_tooltip()
+    Ingredient.find_by_nom(nom).special_tooltip();
+  end  
+  
+  def special?()
+    Ingredient.find_by_nom(nom).special;
   end  
 
   private

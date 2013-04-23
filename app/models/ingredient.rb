@@ -17,7 +17,12 @@ class Ingredient < ActiveRecord::Base
   end
 
   def tooltip()
-    tooltip= "#{self.nom}:#{self.prix}$Glucides:#{self.glucide}\nProteines:#{self.proteine}\nLipides:#{self.gras}"
+    tooltip= "#{self.nom}:#{self.prix}$ Glucides:#{self.glucide}  Proteines:#{self.proteine}  Lipides:#{self.gras}"
+    return tooltip
+  end 
+
+  def special_tooltip()
+    tooltip= "#{self.epicerie}:#{self.prix_special}$"
     return tooltip
   end 
 end
