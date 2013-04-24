@@ -32,30 +32,56 @@
           <div class="offset3 span5 input-append">
             <h1>Partagez et Découvrez des recettes</h1>
             <%= render 'recherche/search_bar' %>
-        </div>
-        <div class="row">
-          <div class="offset4 span4">
-            <a href="#login_modal" class="btn btn-large btn-block btn-info" data-toggle="modal">Devenez un Chef</a>
+          </div>
+          <div class="row">
+            <div class="offset4 span4">
+              <a href="#login_modal" class="btn btn-large btn-block btn-info" data-toggle="modal">Devenez un Chef</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
   </div>
 
-</div>
+  <div class="container">
+    <div class="row home-description">
+      <div class="span4">
+        <i class="icon-eye-open"></i>
+        <h2>Découvrez</h2>
+        <p>
+          Vous trouverez des idées recettes pour satisfaire votre gourmandise et vos talents de cuisinier.
+        </p>
+      </div>
+      <div class="span4">
+        <i class="icon-group"></i>
+        <h2>Partagez</h2>
+        <p>
+          Partagez vos meilleurs recettes avec vos amis et nos nombreux membres.
+        </p>
+      </div>
+      <div class="span4">
+        <i class="icon-retweet"></i>
+        <h2>Réinventez</h2>
+        <p>
+          Modifiez une recette et partagez votre version.
+        </p>
+      </div>
+    </div>
+  </div>
 
-<div id="login_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-    <h3 id="myModalLabel">Créer un compte</h3>
+  <div id="login_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+      <h3 id="myModalLabel">Créer un compte</h3>
+    </div>
+    <div class="modal-body">
+      <%= sign_in_buttons %>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Fermer</button>
+    </div>
   </div>
-  <div class="modal-body">
-    <%= sign_in_buttons %>
-  </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Fermer</button>
-  </div>
-</div>
 
 </body>
 </html>
