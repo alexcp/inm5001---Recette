@@ -56,7 +56,7 @@
       <tr class="fields">
         <td>
           <%= ingredient.hidden_field :id %>
-          <%= ingredient.text_field :nom, :placeholder => 'Nom', :autocomplete => "off", :onkeydown=> 'recherchable(this,this.value)', :class => 'autocomplete' %>
+          <%= ingredient.text_field :nom, :placeholder => 'Nom', :autocomplete => "off", :onkeyup=> 'recherchable(this,this.value)', :class => 'autocomplete' %>
         </td>
         <td class="fix_for_small_screen">
           <%= ingredient.text_field :quantite, :class => 'span1' %>
