@@ -51,9 +51,11 @@
           </td>
           <td>
             <% if ingredient.admin? %>
-              <%=  link_to '<i class="icon-info-sign"></i>'.html_safe, '', title: ingredient.tooltip(), rel: 'tooltip' %>
+              <i id="tt2" class="icon-info-sign"></i>
+              <span class="cacher" id="info"><%= ingredient.tooltip() %></span>
               <% if ingredient.special? %>
-                <%=  link_to '$'.html_safe, '', title: ingredient.special_tooltip(), rel: 'tooltip' %>
+                <span id="tt" class="">$</span>
+                <span class="cacher" id="special"><%= ingredient.special_tooltip() %></span>
               <% end %>
             <% end %>
           </td>
