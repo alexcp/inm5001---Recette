@@ -1,12 +1,17 @@
+<div class="row-fluid">
+  <div class="span4">
+    <%= image_tag "#{@user.gravatar}?s=200", class: "thumbnail" %>
+    <h1><%= @user.name %></h1>
+  </div>
+</div>
 
-<h1><%= @user.name %></h1>
 <div id="vos_recettes">
-	<a href="#" class="btn btn-large btn-inverse" id="switch" onclick="switcherFavoris()">Afficher vos favoris</a>
-	<h3>Vos recettes</h3>
-	<%= render :partial => 'recettes/liste_recettes', :locals => {:recettes => @user.recettes} %>
+  <a href="#" class="btn btn-large btn-inverse" id="switch" onclick="switcherFavoris()">Afficher vos favoris</a>
+  <h3>Vos recettes</h3>
+  <%= render :partial => 'recettes/liste_recettes', :locals => {:recettes => @user.recettes} %>
 </div>
 <div id="vos_favoris" class="cacher">
-	<a href="#" class="btn btn-large btn-inverse" id="switch" onclick="switcherRecettes()">Afficher vos recettes</a>
-	<h3>Vos Favoris</h3>
-	<%= render :partial => 'recettes/liste_recettes', :locals => {:recettes => @user.find_liked_items} %>
+  <a href="#" class="btn btn-large btn-inverse" id="switch" onclick="switcherRecettes()">Afficher vos recettes</a>
+  <h3>Vos Favoris</h3>
+  <%= render :partial => 'recettes/liste_recettes', :locals => {:recettes => @user.find_liked_items} %>
 </div>

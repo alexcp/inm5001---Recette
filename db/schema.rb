@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130423002711) do
+ActiveRecord::Schema.define(:version => 20130423234947) do
 
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id",   :default => 0
@@ -63,15 +63,12 @@ ActiveRecord::Schema.define(:version => 20130423002711) do
   end
 
   create_table "recettes", :force => true do |t|
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.integer  "user_id"
     t.string   "titre"
     t.string   "description"
     t.text     "preparation"
-    t.text     "temps_preparation"
-    t.text     "temps_cuisson"
-    t.text     "temperature_cuisson"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
@@ -87,6 +84,7 @@ ActiveRecord::Schema.define(:version => 20130423002711) do
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
     t.boolean  "admin",            :default => false
+    t.string   "gravatar"
   end
 
   create_table "votes", :force => true do |t|

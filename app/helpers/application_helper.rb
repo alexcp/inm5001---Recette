@@ -43,7 +43,7 @@ module ApplicationHelper
 
   def admin
     if current_user.admin
-    link_to "<i class='icon-edit' id='edit'></i>".html_safe, "/ingredients"
+      link_to "<i class='icon-edit' id='edit'></i>".html_safe, "/ingredients"
     end 
   end   
 
