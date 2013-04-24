@@ -5,13 +5,21 @@
   </div>
 </div>
 
-<div id="vos_recettes">
-  <a href="#" class="btn btn-large btn-inverse" id="switch" onclick="switcherFavoris()">Afficher vos favoris</a>
-  <h3>Vos recettes</h3>
-  <%= render :partial => 'recettes/liste_recettes', :locals => {:recettes => @user.recettes} %>
-</div>
-<div id="vos_favoris" class="cacher">
-  <a href="#" class="btn btn-large btn-inverse" id="switch" onclick="switcherRecettes()">Afficher vos recettes</a>
-  <h3>Vos Favoris</h3>
-  <%= render :partial => 'recettes/liste_recettes', :locals => {:recettes => @user.find_liked_items} %>
+<ul class="nav nav-tabs" id="userTab">
+  <li class="active">
+    <a href="#recette" class="btn btn-large btn-inverse" data-toggle="tab">Afficher vos recettes</a>
+  </li>
+  <li>
+    <a href="#favoris" class="btn btn-large btn-inverse" data-toggle="tab">Afficher vos favoris</a>
+  </li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane active" id="recette">
+    <h3>Vos recettes</h3>
+    <%= render :partial => 'recettes/liste_recettes', :locals => {:recettes => @user.recettes} %>
+  </div>
+  <div class="tab-pane" id="favoris">
+    <h3>Vos Favoris</h3>
+    <%= render :partial => 'recettes/liste_recettes', :locals => {:recettes => @user.find_liked_items} %>
+  </div>
 </div>

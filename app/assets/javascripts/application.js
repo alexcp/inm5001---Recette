@@ -32,8 +32,4 @@ $(document).ready(function() {
 			$(this).tooltip('hide');
 		}
 	})
-
-$("#switch").onclick(function(){
-	$("#vos_recettes").hide();
-})
 });
