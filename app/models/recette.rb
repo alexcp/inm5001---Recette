@@ -4,10 +4,10 @@ class Recette < ActiveRecord::Base
   attr_accessible :titre, :description, :preparation, :ingredient_recettes_attributes, :etapes_attributes, :temperature_cuisson, :photo
 
   has_attached_file :photo, :default_url => "defaultRecipe.jpg",  :styles => {
-    :thumb=> "100x100#",
-    :small  => "150x150>",
-    :medium => "200x200>",
-    :large =>   "400x400>" }
+    :thumb=> "x100>",
+    :small  => "x150>",
+    :medium => "x200>",
+    :large =>   "x400>" }
 
   validates_attachment_size :photo, :less_than => 5.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png', 'image/jpg']
@@ -28,10 +28,6 @@ class Recette < ActiveRecord::Base
 
   def if_recette_belong_to(id)
     self.user_id == id
-  end
-
-  def getUser()
-    User.find(self.user_id).name
   end
 
   def self.cloner(id)
