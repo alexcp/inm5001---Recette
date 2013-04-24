@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
       user.uid = auth[:uid]
       user.name = auth[:info][:name]
       user.oauth_token = auth[:credentials][:token]
-      user.gravatar = "http://www.gravatar.com/avatar/#{calculate_gravatar_hash auth[:info][:email]}"
+      user.gravatar = "http://www.gravatar.com/avatar/#{calculate_gravatar_hash auth[:info][:email]}" if auth[:provider] == "facebook"
       user.save!
     end
   end
