@@ -1,5 +1,7 @@
 # INM5001 - Recettes
 
+This app was made for a course in UQAM, it could be improved a lot, but it could also be a good starting point for a beginner.
+
 ## Utilisation
 Installez Ruby 1.9.3, une fois que c'est fait installer bundler `gem install bundler`.
 
